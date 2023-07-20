@@ -1,0 +1,231 @@
+:root {
+    --menuSize: 350px;
+    --headerHeight: 75px;
+
+    --black: rgb(0, 0, 0);
+    --grey: rgb(40, 40, 40);
+    --lightGrey: rgb(80,80,80);
+    --white: rgb(255, 255, 255);
+    --red: rgb(255, 0, 0);
+}
+
+a{
+    text-decoration:none;
+}
+
+a:hover{
+    color: var(--red);
+}
+
+button {
+    cursor: pointer;
+}
+
+header {
+    width: 100dvw;
+    grid-area: header;
+    position: fixed;
+    height: var(--headerHeight);
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: var(--black);
+    color: var(--white);
+    z-index: 5;
+}
+
+.menu {
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--menuSize);
+    z-index: 6;
+}
+
+.menuContainer {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    width: 80%;
+    gap: 10px;
+    z-index: 7;
+}
+
+.pfpContainerCorner {
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--grey);
+    border: 2px;
+    border-color: var(--grey);
+    border-style: solid;
+    z-index: 8;
+}
+.pfpContainerCorner:hover {
+    border-color: var(--lightGrey);
+}
+
+.websiteName {
+    font-size: 15px;
+    justify-self: center;
+    grid-column: 2;   
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: var(--headerHeight);
+}
+
+.logo {
+    justify-self: center;
+    align-self:center;
+    height: 70px;
+    border: -2px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.menu2 {
+    justify-self: end;
+    grid-column: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--menuSize);
+}
+
+.searchArea {
+    height: 50px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+}
+
+.searchBar { 
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;flex-direction: row;
+}
+
+.searchInput {
+    font-size: 15px;
+    position: relative;
+    width: 100%;
+    padding: 5px;
+    padding-right: 115px;
+    padding-left: 10px;
+    background-color: var(--grey);
+    border-style: var(--grey);
+    color: var(--white);
+    z-index: 1;
+    border-radius: 20px;
+    outline: none;
+}
+.searchInput:hover {   
+    background-color: var(--lightGrey);
+}
+.searchInput:focus {
+    background-color: var(--lightGrey);
+}
+
+.delButton {
+    font-size: 15px;
+    position:absolute;
+    color: var(--white);
+    right: 80px;
+    aspect-ratio: 1/1;
+    height: 100%;
+    text-align: center;
+    background-color: var(--grey);
+    border-style:solid, var(--grey);
+    z-index: 2;
+    outline: none;
+}
+.delButton:hover {
+    background-color: var(--lightGrey);
+}
+.delButton:focus {   
+    background-color: var(--lightGrey);
+}
+.delButton:active {   
+    background-color: var(--red);
+}
+
+.searchButton {
+    font-size: 15px;
+    position:absolute;
+    color: var(--white);
+    right: 0%;
+    height: 100%;
+    width: 80px;
+    text-align: center;
+    background-color: var(--grey);
+    border-style:solid, var(--grey);
+    z-index: 2;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    outline: none;
+}
+.searchButton:hover {
+    background-color: var(--lightGrey);
+}
+.searchButton:focus {
+    background-color: var(--lightGrey);
+}
+.searchButton:active {
+    background-color: var(--red);
+}
+
+body {
+    width: 100dvw;
+    height: 100dvh;
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    color:var(--white);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.sideMenu {
+    position: fixed;
+    width: 300px;
+    left: -250px;
+    height: 100dvh;
+    top: var(--headerHeight);
+    background-color: var(--black);
+    z-index: 2;
+    transition: left ease-in-out 400ms;
+}
+
+.sideMenu:hover {
+    left: 0px;
+    transition: left ease-in-out 400ms;
+}
+
+.sideMenuContent {
+    height: 100dvh;
+    margin-right: 50px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    column-gap: 10px;
+}
+
+.sideMenuLink {
+    font-size: 30px;
+    color: var(--white);
+}
+
+.lowerBody {
+    left: 50px;
+    background-color: var(--grey);
+    position: relative;
+    top: 75px;
+    grid-area: main;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
