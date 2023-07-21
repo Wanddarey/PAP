@@ -7,6 +7,7 @@
     --lightGrey: rgb(80,80,80);
     --white: rgb(255, 255, 255);
     --red: rgb(255, 0, 0);
+    --green: rgb(40, 200, 0);
 }
 
 a{
@@ -173,7 +174,7 @@ header {
     background-color: var(--lightGrey);
 }
 .searchButton:active {
-    background-color: var(--red);
+    background-color: var(--green);
 }
 
 body {
@@ -217,15 +218,52 @@ body {
     color: var(--white);
 }
 
+.sideMenuSeparator {
+    width: 100%;
+    height: 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: var(--grey);
+}
+
 .lowerBody {
     left: 50px;
     background-color: var(--grey);
     position: relative;
     top: 75px;
     grid-area: main;
-    width: 100%;
+    width: calc(100dvw - 150px);
+    display: flex;
+    padding: 50px;
+    gap: 20px;
+    justify-items: center;
+}
+/*fix sizing error*/
+.cardDisplay {
+    background-color: var(--lightGrey);
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+    
+}
+
+.displayRow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.displayCard {
+    position: static;
+    min-width: 400px;
+    min-height: 200px;
+    width:100%;
+    aspect-ratio: 2/1;
+    background-color: var(--grey);
 }

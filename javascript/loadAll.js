@@ -1,6 +1,10 @@
 let address = 'http://localhost/dashboard/PAP/php/dataLayer.php';
 
-function search() {
+
+//tipos
+//AllIdDesc
+//AllIdAsc
+function standartQueries(type) {
   let url = `${address}?query=${encodeURIComponent(query)}`;
 
   fetch(url, {
@@ -10,7 +14,7 @@ function search() {
       'Content-Type': 'application/json',
     },
     body: {
-        
+        GET: type
     }
   }).then((response) => {
     if (response.ok) {

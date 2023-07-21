@@ -9,7 +9,8 @@ $password = "";
 $conn;
 include_once 'Basics.php';
 
-function tryconnect() {
+function tryconnect()
+{
     global $servername, $username, $password, $conn, $DBname;
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$DBname", $username, $password);
@@ -17,20 +18,34 @@ function tryconnect() {
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         //echo "Connected successfully";
         return true;
-    } catch(PDOException $e) {
+    } catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
         return false;
     }
 }
 
-function dbQuery($query) {
+function dbQuery($query)
+{
     global $conn;
-    if(tryconnect()) {
+    if (tryconnect()) {
         $sql = "SELECT `ID`, `Nome`, `Autor`, `DdP`, `Editora`, `Capa` FROM `livros` WHERE `Nome` LIKE '%$query%' OR `Autor` LIKE '%$query%' OR `DdP` LIKE '%$query%'";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $result;
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+    echo 'DB not found';
+}
+
+function dbDefaultQuery()
+{
+    global $conn;
+    if (tryconnect()) {
+        $sql = "SELECT * FROM `livros`  ORDER BY 'ID' DESC";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
     }
     echo 'DB not found';
 }

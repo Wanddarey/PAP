@@ -2,7 +2,7 @@
 include_once 'DBConnector.php';
 include_once 'Basics.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["query"])) {
 
     $query = test_input($_GET["query"]);
     $res = dbQuery($query);
@@ -39,6 +39,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 } else {
     http_response_code(404);
     echo 'Not Found';
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_POST["GET"])) {
+    
 }
 
 ?>
