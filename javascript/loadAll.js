@@ -1,6 +1,5 @@
 let address = 'http://localhost/dashboard/PAP/php/dataLayer.php';
 
-
 //tipos
 //AllIdDesc
 //AllIdAsc

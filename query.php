@@ -18,7 +18,9 @@
 
         <div class="cardDisplay">
             <div class="displayRow">
-                <div class="displayCard"></div>
+                <div class="displayCard">
+                    <img class="displayImage" src="./imagens/displayImages/tall.jpg" alt="">
+                </div>
 
                 <div class="displayCard"></div>
             </div>

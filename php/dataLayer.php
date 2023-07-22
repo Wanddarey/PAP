@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["query"])) {
             $data[] = array('id' => $id, 'nome' => $nome, 'autor' => $autor, 'DdP' => $DdP, 'editora' => $editora, 'capa' => $capa);
         }
         $searchResult = [
-            "data" => $data,
+            "livros" => $data,
             "status" => "Success"
         ];
     } else if (empty($res)){

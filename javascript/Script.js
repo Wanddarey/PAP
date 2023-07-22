@@ -14,17 +14,18 @@ function search() {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     }
-  }).then((response) => {
-    if (response.ok) {
-      console.log(response.json());
-    } else {
-      throw new Error(`Request failed with status ${response.status}`);
-    }
-  })
+  }).then((response) => response.json())
   .then((responseJson) => {
     console.log(responseJson);
+    let newLine = false;
+    for (const livro of responseJson.livros) {
+      console.log(livro);
+      var displayCard = document.createElement("div");
+      displayCard.className = "displayCard";
+    }
   })
   .catch((error) => {
-    console.log(error);
+      console.log(error);
   });
 }
+
