@@ -22,6 +22,16 @@ function search() {
       console.log(livro);
       var displayCard = document.createElement("div");
       displayCard.className = "displayCard";
+
+      var displayCard = document.createElement("div");
+      displayCard.className = "displayHalf";
+
+      var displayCard = document.createElement("img");
+      displayCard.className = "displayImage";
+
+      var displayCard2 = document.createElement("div");
+      displayCard2.className = "displayHalf";
+      
     }
   })
   .catch((error) => {

@@ -28,7 +28,7 @@ function dbQuery($query)
 {
     global $conn;
     if (tryconnect()) {
-        $sql = "SELECT `ID`, `Nome`, `Autor`, `DdP`, `Editora`, `Capa` FROM `livros` WHERE `Nome` LIKE '%$query%' OR `Autor` LIKE '%$query%' OR `DdP` LIKE '%$query%'";
+        $sql = "SELECT * FROM `livros` WHERE `Nome` LIKE '%$query%' OR `Autor` LIKE '%$query%' OR `DdP` LIKE '%$query%'";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
