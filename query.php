@@ -16,7 +16,7 @@
 
     <div class="lowerBody">
 
-        <div class="cardDisplay">
+        <div id="cardDisplay" class="cardDisplay">
             <div class="displayRow">
                 <div class="displayCard">
                     <div class="displayHalf">

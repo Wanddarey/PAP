@@ -8,18 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["query"])) {
     $res = dbQuery($query);
     $searchResult = array();
     if(!empty($res)) {
-        $data = array();
-        foreach ($res as $row) {
-            $id = $row["ID"];
-            $nome = $row["Nome"];
-            $autor = $row["Autor"];
-            $DdP = $row["DdP"];
-            $editora = $row["Editora"];
-            $capa = $row["Capa"];
-            $data[] = array('id' => $id, 'nome' => $nome, 'autor' => $autor, 'DdP' => $DdP, 'editora' => $editora, 'capa' => $capa);
-        }
         $searchResult = [
-            "livros" => $data,
+            "livros" => $res,
             "status" => "Success"
         ];
     } else if (empty($res)){
