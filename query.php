@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 
-<body onload="standartQueries('AllIdDesc')">
+<body>
     <?php include './html/header.html'; ?>
     <?php include './html/sideMenu.html'; ?>
 

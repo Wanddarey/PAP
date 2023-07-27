@@ -2,9 +2,12 @@ function deleteText() {
   document.getElementById("searchInput").value = "";
 }
 
-let address = 'http://localhost/dashboard/PAP/php/dataLayer.php';
+let host = 'http://localhost/dashboard/';
 
-function search() {
+let address = host + 'PAP/php/dataLayer.php';
+
+function search() { 
+
   let query = document.getElementById("searchInput").value;
   let url = `${address}?query=${encodeURIComponent(query)}`;
 

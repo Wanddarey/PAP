@@ -11,7 +11,7 @@
     <?php include './html/header.html'; ?>
     <?php include './html/sideMenu.html'; ?>
 
-    <div class="lowerBody">
+    <div id="lowerBody" class="lowerBody">
 
     </div>
 </body>
