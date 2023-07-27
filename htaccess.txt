@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^PAP/query/([^/]+)$ /PAP/query.php?query=$1 [L]
