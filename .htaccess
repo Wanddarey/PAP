@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^books/booknumber(\d+)$ book.php?booknumber=$1 [L]

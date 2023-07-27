@@ -41,7 +41,7 @@ function dbDefaultQuery()
 {
     global $conn;
     if (tryconnect()) {
-        $sql = "SELECT * FROM `livros`  ORDER BY 'ID' DESC";
+        $sql = "SELECT * FROM `livros` ORDER BY `ID` DESC;";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

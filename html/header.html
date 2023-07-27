@@ -5,17 +5,17 @@
         </div>
     </div>
     <div class="websiteName">
-        <h1>Alexandria</h1>
+        <h1 class="webTitle">Alexandria</h1>
         <img class="logo" src="./resources/alexandriaLogoFinal.svg" alt="">
-        <h1>Livros</h1>
+        <h1 class="name">Livros</h1>
     </div>
     <div class="menu2">
     <div class="searchArea">
-            <div class="searchBar">
-                <input id="searchInput" class="searchInput" placeholder="Livro ou autor" type="text">
+            <form class="searchBar" action="/dashboard/alt_pap/pap/query.php" method="get">
+                <input id="searchInput" class="searchInput" placeholder="Livro ou autor" type="text" name="query">
                 <button class="delButton" onclick="deleteText()">X</button>
-                <button class="searchButton" onclick="search()">Pesquisar</button>              
-            </div>
+                <button class="searchButton" type="submit">Pesquisar</button>
+            </form>
         </div>
     </div>
 </header>
