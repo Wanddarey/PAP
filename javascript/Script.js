@@ -2,11 +2,20 @@ function deleteText() {
   document.getElementById("searchInput").value = "";
 }
 
+const input = document.getElementById('searchForm');
+
+input.addEventListener('keydown', function (event) {
+  if (event.key === 'Enter') {
+    const form = document.getElementById('searchForm');
+    form.submit();
+  }
+});
+
 let host = 'http://localhost/dashboard/';
 
 let address = host + 'PAP/php/dataLayer.php';
 
-function search() { 
+function search() {
 
   let query = document.getElementById("searchInput").value;
   let url = `${address}?query=${encodeURIComponent(query)}`;

@@ -7,24 +7,26 @@
     --menuColor: rgb(0, 0, 0);
 
     --linkOnHover: rgb(255, 0, 0);
-    --onHoverColor: rgb(80,80,80);
-    --onFocusColor: rgb(80,80,80);
+    --onHoverColor: rgb(80, 80, 80);
+    --onFocusColor: rgb(80, 80, 80);
 
     --black: rgb(0, 0, 0);
     --grey: rgb(40, 40, 40);
-    --lightGrey: rgb(80,80,80);
+    --lightGrey: rgb(80, 80, 80);
     --white: rgb(255, 255, 255);
     --red: rgb(255, 0, 0);
     --green: rgb(40, 200, 0);
+
+    --font: 'Dancing Script', cursive;
 }
 
-a{
-    text-decoration:none;
+a {
+    text-decoration: none;
     outline: none;
     color: var(--fontColor);
 }
 
-a:hover{
+a:hover {
     color: var(--linkOnHover);
 }
 
@@ -71,6 +73,7 @@ header {
     border-style: solid;
     z-index: 8;
 }
+
 .pfpContainerCorner:hover {
     border-color: var(--onHoverColor);
 }
@@ -78,7 +81,7 @@ header {
 .websiteName {
     font-size: 15px;
     justify-self: center;
-    grid-column: 2;   
+    grid-column: 2;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -87,7 +90,7 @@ header {
 
 .logo {
     justify-self: center;
-    align-self:center;
+    align-self: center;
     height: 70px;
     border: -2px;
     margin-left: 25px;
@@ -111,11 +114,12 @@ header {
     max-width: 600px;
 }
 
-.searchBar { 
+.searchBar {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    width: 100%;flex-direction: row;
+    width: 100%;
+    flex-direction: row;
 }
 
 .searchInput {
@@ -132,68 +136,77 @@ header {
     border-radius: 20px;
     outline: none;
 }
-.searchInput:hover {   
+
+.searchInput:hover {
     background-color: var(--onHoverColor);
 }
+
 .searchInput:focus {
     background-color: var(--onFocusColor);
 }
 
 .delButton {
     font-size: 15px;
-    position:absolute;
+    position: absolute;
     color: var(--white);
     right: 80px;
     aspect-ratio: 1/1;
     height: 100%;
     text-align: center;
     background-color: var(--grey);
-    border-style:solid, var(--grey);
+    border-style: solid, var(--grey);
     z-index: 2;
     outline: none;
 }
+
 .delButton:hover {
     background-color: var(--onHoverColor);
 }
-.delButton:focus {   
+
+.delButton:focus {
     background-color: var(--onFocusColor);
 }
-.delButton:active {   
+
+.delButton:active {
     background-color: var(--red);
 }
 
 .searchButton {
     font-size: 15px;
-    position:absolute;
+    position: absolute;
     color: var(--white);
     right: 0%;
     height: 100%;
     width: 80px;
     text-align: center;
     background-color: var(--grey);
-    border-style:solid, var(--grey);
+    border-style: solid, var(--grey);
     z-index: 2;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     outline: none;
 }
+
 .searchButton:hover {
     background-color: var(--onHoverColor);
 }
+
 .searchButton:focus {
     background-color: var(--onFocusColor);
 }
+
 .searchButton:active {
     background-color: var(--green);
 }
 
 body {
+    font-family: var(--font);
     width: 100dvw;
     height: 100dvh;
     margin: 0%;
     display: flex;
     flex-direction: column;
-    color:var(--fontColor);
+    color: var(--fontColor);
     overflow-y: scroll;
     overflow-x: hidden;
     background-color: var(--grey);
@@ -261,45 +274,28 @@ body {
 }
 
 /*fix sizing error*/
-.cardDisplay {
+.cardDisplayGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     border-radius: 10px;
     background-color: var(--lightGrey);
     height: 100%;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
     padding: 20px;
     gap: 20px;
+    justify-items: center;
     overflow: hidden;
-    
 }
 
-.displayRow {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    gap: 20px;
-}
-
-.displayCard {
+.displayCardGrid {
     border-radius: 10px;
-    position: static;
-    min-width: 400px;
-    min-height: 200px;
-    width:50%;
-    max-width: 800px;
+    max-width: 600px;
     aspect-ratio: 2/1;
     background-color: var(--grey);
     display: flex;
     flex-direction: row;
     padding: 10px;
     border: none;
-}
-
-.displayCard:hover {
-    border: 2px --black solid;
 }
 
 .displayHalf {
@@ -323,6 +319,7 @@ body {
 .displayImage {
     max-height: 90%;
     max-width: 90%;
+    border-radius: 10px;
 }
 
 .displayTitle {
