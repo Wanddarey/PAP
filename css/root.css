@@ -1,0 +1,23 @@
+:root {
+    --menuSize: 350px;
+    --headerHeight: 75px;
+
+    --fontColor: rgb(255, 255, 255);
+    --linkColor: rgb(255, 255, 255);
+    --menuColor: rgb(0, 0, 0);
+
+    --linkOnHover: rgb(255, 0, 0);
+    --onHoverColor: rgb(80, 80, 80);
+    --onFocusColor: rgb(80, 80, 80);
+
+    --black: rgb(0, 0, 0);
+    --grey: rgb(40, 40, 40);
+    --lightGrey: rgb(80, 80, 80);
+    --white: rgb(255, 255, 255);
+    --red: rgb(255, 0, 0);
+    --green: rgb(40, 200, 0);
+
+    --font: 'Dancing Script', cursive;
+
+    --standartBorderRadius: 10px;
+}

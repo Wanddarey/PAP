@@ -60,7 +60,7 @@ function displayQuery($livros)
     $displayHalf .= $displayImage . '</div>';
 
     $displayHalf2 = '<div class="displayHalf2">';
-    $displayTitle = '<a class="displayTitle" Title=' . $livro['Nome'] . '>' . $livro['Nome'] . '</a>';
+    $displayTitle = '<a class="displayTitle" href="http://localhost/dashboard/pap/livro.php?livro=' . $livro['ID'] . '" Title=' . $livro['Nome'] . '>' . $livro['Nome'] . '</a>';
     $textSeparator = '<div class="textSeparator"></div>';
     $displayParagraph = '<p class="displayParagraph">' . $livro['Descricao'] . '</p>';
     $displayHalf2 .= $displayTitle . $textSeparator . $displayParagraph . '</div>';

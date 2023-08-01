@@ -1,7 +1,7 @@
 <?php
-//$servername = "sql212.infinityfree.com"; //localhost
-//$username = "if0_34623021"; //root
-//$password = "vSFEzWq8xLlucvL"; //
+//$servername = "sql212.infinityfree.com";
+//$username = "if0_34623021";
+//$password = "vSFEzWq8xLlucvL";
 $DBname = "pap_test_db";
 $servername = "localhost";
 $username = "root";
@@ -42,6 +42,19 @@ function dbDefaultQuery()
     global $conn;
     if (tryconnect()) {
         $sql = "SELECT * FROM `livros` ORDER BY `ID` DESC;";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+    echo 'DB not found';
+}
+
+function dbGetBook($livro)
+{
+    global $conn;
+    if (tryconnect()) {
+        $sql = "SELECT * FROM `livros` WHERE `ID`= '%$livro%'";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

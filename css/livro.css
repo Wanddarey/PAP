@@ -1,0 +1,39 @@
+@import url(root.css);
+
+body {
+    overflow: hidden;
+}
+
+.bookInfoCard {
+    background-color: var(--lightGrey);
+    border-radius: var(--standartBorderRadius);
+    height: 80dvh;
+    width: 80dvw;
+    display: flex;
+    flex-direction: row;
+}
+
+.bookInfoCardHalf1 {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bookInfoImage {
+    max-height: 90%;
+    max-width: 90%;
+    border-radius: var(--standartBorderRadius);
+    object-fit: contain;
+}
+
+.bookInfoTitle {
+    max-height: 10%;
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 20px;
+}

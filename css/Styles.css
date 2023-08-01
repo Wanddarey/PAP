@@ -1,24 +1,4 @@
-:root {
-    --menuSize: 350px;
-    --headerHeight: 75px;
-
-    --fontColor: rgb(255, 255, 255);
-    --linkColor: rgb(255, 255, 255);
-    --menuColor: rgb(0, 0, 0);
-
-    --linkOnHover: rgb(255, 0, 0);
-    --onHoverColor: rgb(80, 80, 80);
-    --onFocusColor: rgb(80, 80, 80);
-
-    --black: rgb(0, 0, 0);
-    --grey: rgb(40, 40, 40);
-    --lightGrey: rgb(80, 80, 80);
-    --white: rgb(255, 255, 255);
-    --red: rgb(255, 0, 0);
-    --green: rgb(40, 200, 0);
-
-    --font: 'Dancing Script', cursive;
-}
+@import url(root.css);
 
 a {
     text-decoration: none;
@@ -216,16 +196,24 @@ body {
     position: fixed;
     width: 300px;
     left: -250px;
-    height: 100dvh;
+    height: calc(100dvh - var(--headerHeight)) ;
     top: var(--headerHeight);
     background-color: var(--menuColor);
     z-index: 2;
+    overflow-y: scroll;
+    scrollbar-width: none;
     transition: left ease-in-out 400ms;
+}
+
+.sideMenu::-webkit-scrollbar {
+    display: none; 
 }
 
 .sideMenu:hover {
     left: 0px;
     transition: left ease-in-out 400ms;
+
+
 }
 
 .sideMenuContent {
@@ -264,7 +252,7 @@ body {
 }
 
 .noResult {
-    border-radius: 10px;
+    border-radius: var(--standartBorderRadius);
     width: 80%;
     background-color: red;
     height: 50px;
@@ -277,7 +265,7 @@ body {
 .cardDisplayGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    border-radius: 10px;
+    border-radius: var(--standartBorderRadius);
     background-color: var(--lightGrey);
     height: 100%;
     width: 100%;
@@ -288,7 +276,7 @@ body {
 }
 
 .displayCardGrid {
-    border-radius: 10px;
+    border-radius: var(--standartBorderRadius);
     max-width: 600px;
     aspect-ratio: 2/1;
     background-color: var(--grey);
@@ -304,7 +292,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
 
 .displayHalf2 {
@@ -319,7 +306,7 @@ body {
 .displayImage {
     max-height: 90%;
     max-width: 90%;
-    border-radius: 10px;
+    border-radius: var(--standartBorderRadius);
 }
 
 .displayTitle {
