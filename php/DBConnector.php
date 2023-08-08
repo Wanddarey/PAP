@@ -2,7 +2,7 @@
 //$servername = "sql212.infinityfree.com";
 //$username = "if0_34623021";
 //$password = "vSFEzWq8xLlucvL";
-$DBname = "pap_test_db";
+$DBname = "papdb";
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -19,7 +19,7 @@ function tryconnect()
         //echo "Connected successfully";
         return true;
     } catch (PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
+        //echo "Connection failed: " . $e->getMessage();
         return false;
     }
 }
@@ -34,7 +34,7 @@ function dbQuery($query)
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
-    echo 'DB not found';
+    //echo 'DB not found';
 }
 
 function dbDefaultQuery()
@@ -47,7 +47,7 @@ function dbDefaultQuery()
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
-    echo 'DB not found';
+    //echo 'DB not found';
 }
 
 function dbGetBook($livro)
@@ -60,7 +60,7 @@ function dbGetBook($livro)
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
-    echo 'DB not found';
+    //echo 'DB not found';
 }
 
 ?>

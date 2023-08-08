@@ -23,10 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["livro"]) && is_int($_GET
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./javascript/Script.js"></script>
-    <title>Inicio</title>
+    <title>Livro</title>
+    <?php include './html/basicImports.html'; ?>
     <style>
-        @import url('./css/Styles.css');
         @import url('./css/livro.css');
     </style>
 </head>

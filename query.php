@@ -4,13 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="./javascript/Script.js"></script>
-  <script src="./javascript/loadAll.js"></script>
-  <title>Document</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
-    @import url('./css/Styles.css');
-  </style>
+  <title>Livros</title>
+  <?php include './html/basicImports.html'; ?>
 </head>
 
 <body>
@@ -56,7 +51,7 @@ function displayQuery($livros)
   foreach ($livros as $livro) {
     $displayCard = '<div class="displayCardGrid">';
     $displayHalf = '<div class="displayHalf">';
-    $displayImage = '<img class="displayImage" src="http://localhost/dashboard/pap/imagens/displayImages/' . $livro['Capa'] . '">';
+    $displayImage = '<img class="displayImage" src="./imagens/displayImages/' . $livro['Capa'] . '">';
     $displayHalf .= $displayImage . '</div>';
 
     $displayHalf2 = '<div class="displayHalf2">';
