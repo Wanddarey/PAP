@@ -35,12 +35,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["livro"]) && is_int($_GET
     <?php include './html/sideMenu.html'; ?>
 
     <div id="lowerBody" class="lowerBody">
-        <div class="bookInfoCard">
+        <card class="bookInfoCard">
             <div class="bookInfoCardHalf1">
                 <img class="bookInfoImage" src="./imagens/displayImages/kleeRaytheon.png" alt="">
             </div>
-            <iframe style="width: 90%; height: 90%;" src="http://localhost/dashboard/pap/resources/pdf/industrial-society-and-its-future.pdf" frameborder="0"></iframe>
-        </div>
+        </card>
     </div>
 </body>
 
