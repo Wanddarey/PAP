@@ -77,8 +77,8 @@ header {
     align-self: center;
     height: 70px;
     border: -2px;
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .menu2 {
@@ -215,8 +215,6 @@ body {
 .sideMenu:hover {
     left: 0px;
     transition: left ease-in-out 400ms;
-
-
 }
 
 .sideMenuContent {

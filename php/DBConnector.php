@@ -28,7 +28,7 @@ function dbQuery($query)
 {
     global $conn;
     if (tryconnect()) {
-        $sql = "SELECT * FROM `livros` WHERE `Nome` LIKE '%$query%' OR `Autor` LIKE '%$query%' OR `DdP` LIKE '%$query%'";
+        $sql = "SELECT * FROM `books` WHERE `title` LIKE '%$query%' OR `author` LIKE '%$query%' OR `dOP` LIKE '%$query%'";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -41,7 +41,7 @@ function dbDefaultQuery()
 {
     global $conn;
     if (tryconnect()) {
-        $sql = "SELECT * FROM `livros` ORDER BY `ID` DESC;";
+        $sql = "SELECT * FROM `books` ORDER BY `Id` DESC;";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -50,17 +50,29 @@ function dbDefaultQuery()
     //echo 'DB not found';
 }
 
-function dbGetBook($livro)
+function dbGetBook($book)
 {
     global $conn;
     if (tryconnect()) {
-        $sql = "SELECT * FROM `livros` WHERE `ID`= '%$livro%'";
+        $sql = "SELECT * FROM `books` WHERE `Id` = '$book'";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
     //echo 'DB not found';
+}
+
+function dbGetFile($bookId)
+{
+    global $conn;
+    if (tryconnect()) {
+        $sql = "SELECT * FROM `pdffiles` WHERE `Id` = '$bookId'";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }
 
 ?>

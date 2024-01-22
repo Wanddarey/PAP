@@ -42,25 +42,29 @@
 </body>
 
 </html>
-
+<h1 class="displayTitle"> </h1>
 <?php
-function displayQuery($livros)
+function displayQuery($books)
 {
   echo '<div id="cardDisplay" class="cardDisplayGrid">';
 
-  foreach ($livros as $livro) {
-    $displayCard = '<div class="displayCardGrid">';
+  foreach ($books as $book) {
+    $displayCard = '<a href="http://localhost/dashboard/pap/livro.php?book=' . $book['Id'] . '" Title=' . $book['title'] . '><div class="displayCardGrid">';
     $displayHalf = '<div class="displayHalf">';
-    $displayImage = '<img class="displayImage" src="./imagens/displayImages/' . $livro['Capa'] . '">';
+    if (empty($book['cover'])) {
+      $displayImage = '<img class="displayImage" src="./imagens/displayImages/placeholder.png">';
+    } else {
+      $displayImage = '<img class="displayImage" src="./imagens/displayImages/' . $book['cover'] . '">';
+    }
     $displayHalf .= $displayImage . '</div>';
 
     $displayHalf2 = '<div class="displayHalf2">';
-    $displayTitle = '<a class="displayTitle" href="http://localhost/dashboard/pap/livro.php?livro=' . $livro['ID'] . '" Title=' . $livro['Nome'] . '>' . $livro['Nome'] . '</a>';
+    $displayTitle = '<h1 class="displayTitle">' . $book['title'] .'</h1>';
     $textSeparator = '<div class="textSeparator"></div>';
-    $displayParagraph = '<p class="displayParagraph">' . $livro['Descricao'] . '</p>';
+    $displayParagraph = '<p class="displayParagraph">' . $book['description'] . '</p>';
     $displayHalf2 .= $displayTitle . $textSeparator . $displayParagraph . '</div>';
 
-    $displayCard .= $displayHalf . $displayHalf2 . '</div>';
+    $displayCard .= $displayHalf . $displayHalf2 . '</div></a>';
 
     echo $displayCard;
   }

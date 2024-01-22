@@ -13,7 +13,7 @@ body {
     flex-direction: row;
 }
 
-.bookInfoCardHalf1 {
+.bookInfoCardHalf {
     height: 100%;
     width: 50%;
     display: flex;
@@ -36,4 +36,19 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 20px;
+    margin: 0px;
+}
+
+.textNoMargin {
+    margin: 5px;
+}
+
+.filesDisplay {
+    border-radius: var(--standartBorderRadius);
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.filesDisplay::-webkit-scrollbar {
+    display: none; 
 }
