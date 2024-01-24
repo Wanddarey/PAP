@@ -1,1 +1,4 @@
-<img SRC=".pap/resources/Alexandria logo final.png">
+<h1>Alexandria</h1>
+Projeto do incrível Lukius o magnífico
+<br>
+BD não incluída por agora
