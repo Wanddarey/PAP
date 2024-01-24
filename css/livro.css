@@ -22,6 +22,16 @@ body {
     flex-direction: column;
 }
 
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--standartBorderRadius);
+    background-color: var(--grey);
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
 .bookInfoImage {
     max-height: 90%;
     max-width: 90%;
@@ -29,7 +39,7 @@ body {
     object-fit: contain;
 }
 
-.bookInfoTitle {
+.bookInfoText {
     max-height: 10%;
     max-width: 90%;
     white-space: nowrap;
@@ -44,11 +54,31 @@ body {
 }
 
 .filesDisplay {
+    margin-top: 5px;
+    display: flex;
     border-radius: var(--standartBorderRadius);
     overflow-y: scroll;
     scrollbar-width: none;
+    height: 100px;
+    width: 80%;
+    background-color: var(--darkGrey);
+    justify-content: center;
 }
 
 .filesDisplay::-webkit-scrollbar {
     display: none; 
+}
+
+.fileRow {
+    display: flex;
+    
+    flex-direction: row;
+    width: 100%;
+    height: 1em;
+}
+
+.fileRowElement {
+    width: 25%;
+    height: 100%;
+    overflow: hidden;
 }

@@ -259,6 +259,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    place-self: center;  
 }
 
 /*fix sizing error*/
@@ -269,8 +271,8 @@ body {
     background-color: var(--lightGrey);
     height: 100%;
     width: 100%;
-    padding: 20px;
-    gap: 20px;
+    padding: 15px;
+    gap: 15px;
     justify-items: center;
     overflow: hidden;
 }
@@ -313,9 +315,10 @@ body {
     max-height: 10%;
     max-width: 90%;
     white-space: nowrap;
-    overflow: hidden;
+    overflow-y: hidden;
     text-overflow: ellipsis;
     font-size: 20px;
+    overflow: visible;
 }
 
 .textSeparator {
@@ -330,4 +333,5 @@ body {
     max-height: 80%;
     margin: 0px;
     overflow: hidden;
+    text-overflow: ellipsis;
 }

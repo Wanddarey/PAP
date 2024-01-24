@@ -40,27 +40,39 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["book"]) /*&& is_int($_GE
             <div class="bookInfoCardHalf">
                 <?php
                 if (empty($result['cover'])) {
-                $displayImage = '<img class="bookInfoImage" src="./imagens/displayImages/placeholder.png">';
+                    $displayImage = '<img class="bookInfoImage" src="./imagens/displayImages/placeholder.png">';
                 } else {
-                $displayImage = '<img class="bookInfoImage" src="./imagens/displayImages/' . $result['cover'] . '">';
+                    $displayImage = '<img class="bookInfoImage" src="./imagens/displayImages/' . $result['cover'] . '">';
                 }
                 echo $displayImage;
                 ?>
             </div>
             <div class="bookInfoCardHalf">
-                <?php
-                echo '<h1 class="bookInfoTitle">Title: ' . $result['title'] . '</h1>';
-                echo '<p class="textNoMargin">Author: ' . $result['author'] . '</p>';
-                echo '<p class="textNoMargin">Date of publication: '. $result['dOP'] . '</p>';
-                echo '<p class="textNoMargin">Description: ' . $result['description'] . '</p>';
-                ?>
-                <div class="filesDisplay">
+                <div class="infoContainer">
                     <?php
-                        $files = dbGetFile($result[ID]);
-                        foreach ($files as $file) {
-                            $filedp = '<div class="">'
-                        }
+                    echo '<h1 class="bookInfoText">Title: ' . $result['title'] . '</h1>';
+                    echo '<p class="textNoMargin">Author: ' . $result['author'] . '</p>';
+                    echo '<p class="textNoMargin">Date of publication: ' . $result['dOP'] . '</p>';
+                    echo '<p class="textNoMargin">Description: ' . $result['description'] . '</p>';
                     ?>
+                    <h1 class="bookInfoText">Files:</h1>
+                    <div class="filesDisplay">
+                        <?php
+                        $files = dbGetFile($result['Id']);
+                        if (empty($files)) {
+                            echo '<div class="noResult"><h2>No Files</h2></div>';
+                        } else {
+                            foreach ($files as $file) {
+                                $fileRow = '<div class="fileRow">';
+                                $lang = dbGetLang($file['langId']);
+                                $fileName = '<p class="fileRowElement" title=" Name: ' . $file['fileName'] . '">' . $file['fileName'] .'</p>';
+                                $fileLang = '<p class="fileRowElement" title=" Language: ' . $lang[0]['language'] . '">' . $lang[0]['short'] .'</p>';
+                                $fileRow .= $fileName . $fileName . '</div>';
+                                echo $fileRow;
+                            }
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
         </card>

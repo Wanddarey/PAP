@@ -17,10 +17,16 @@
     include_once './php/DBConnector.php';
     include_once './php/Basics.php';
 
-    if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["query"])) {
-
-      $query = test_input($_GET["query"]);
-      $result = dbQuery($query);
+    if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["query"]) || isset($_GET["pg"])) {
+      $query = '';
+      if (isset($_GET["query"])) {
+        $query = test_input($_GET["query"]);
+      }
+      $pg = 1;
+      if (isset($_GET["pg"])) {
+        $pg = test_input($_GET["pg"]);
+      }
+      $result = standartQuery($query, $pg);
       if (!empty($result)) {
         displayQuery($result);
       } else if (empty($res)) {
@@ -29,7 +35,9 @@
       }
 
     } else {
-      $result = dbDefaultQuery();
+      $query = '';
+      $pg = 1;
+      $result = standartQuery($query, $pg);
       if (!empty($result)) {
         displayQuery($result);
       } else if (empty($res)) {
@@ -42,7 +50,6 @@
 </body>
 
 </html>
-<h1 class="displayTitle"> </h1>
 <?php
 function displayQuery($books)
 {
@@ -59,7 +66,7 @@ function displayQuery($books)
     $displayHalf .= $displayImage . '</div>';
 
     $displayHalf2 = '<div class="displayHalf2">';
-    $displayTitle = '<h1 class="displayTitle">' . $book['title'] .'</h1>';
+    $displayTitle = '<h1 class="displayTitle">' . $book['title'] . '</h1>';
     $textSeparator = '<div class="textSeparator"></div>';
     $displayParagraph = '<p class="displayParagraph">' . $book['description'] . '</p>';
     $displayHalf2 .= $displayTitle . $textSeparator . $displayParagraph . '</div>';
