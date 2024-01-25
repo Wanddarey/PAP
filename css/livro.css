@@ -30,6 +30,8 @@ body {
     padding: 10px;
     justify-content: center;
     align-items: center;
+    max-width: 90%;
+    max-height: 90%;
 }
 
 .bookInfoImage {
@@ -60,9 +62,11 @@ body {
     overflow-y: scroll;
     scrollbar-width: none;
     height: 100px;
-    width: 80%;
+    width: 90%;
     background-color: var(--darkGrey);
     justify-content: center;
+    border: 20px;
+    border-color: var(--darkGrey);
 }
 
 .filesDisplay::-webkit-scrollbar {
@@ -70,15 +74,25 @@ body {
 }
 
 .fileRow {
-    display: flex;
-    
-    flex-direction: row;
-    width: 100%;
-    height: 1em;
+    background-color: var(--grey);
+    width: inherit;
+    height: 2em;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10%, 30%));
+    align-items: center;
+    gap: 10px;
+}
+
+.fileRow:hover {
+    background-color: var(--lightGrey);
 }
 
 .fileRowElement {
-    width: 25%;
-    height: 100%;
+    font-size:inherit;
+    margin: 0px;
+    height: 80%;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
