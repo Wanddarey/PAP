@@ -63,11 +63,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["book"]) /*&& is_int($_GE
                             echo '<div class="noResult"><h2>No Files</h2></div>';
                         } else {
                             foreach ($files as $file) {
-                                $fileRow = '<a><div class="fileRow">';
+                                $fileRow = '<a class="fileRow">';
                                 $lang = dbGetLang($file['langId']);
                                 $fileName = '<h3 class="fileRowElement" title=" Name: ' . $file['fileName'] . '">' . $file['fileName'] .'</h3>';
                                 $fileLang = '<h3 class="fileRowElement" title=" Language: ' . $lang[0]['language'] . '">' . $lang[0]['short'] .'</h3>';
-                                $fileRow .= $fileName . $fileLang . '</div></a>';
+                                $fileRow .= $fileName . $fileLang . '</a>';
                                 echo $fileRow;
                             }
                         }

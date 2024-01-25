@@ -58,13 +58,14 @@ body {
 .filesDisplay {
     margin-top: 5px;
     display: flex;
+    flex-direction: column;
     border-radius: var(--standartBorderRadius);
     overflow-y: scroll;
     scrollbar-width: none;
     height: 100px;
     width: 90%;
-    background-color: var(--darkGrey);
-    justify-content: center;
+    background-color: var(--grey);
+    justify-content: start;
     border: 20px;
     border-color: var(--darkGrey);
 }
@@ -75,11 +76,11 @@ body {
 
 .fileRow {
     background-color: var(--grey);
-    width: inherit;
-    height: 2em;
+    height: fit-content;
     padding-left: 10px;
     padding-right: 10px;
     display: grid;
+    text-overflow: ellipsis;
     grid-template-columns: repeat(auto-fit, minmax(10%, 30%));
     align-items: center;
     gap: 10px;
@@ -90,7 +91,7 @@ body {
 }
 
 .fileRowElement {
-    font-size:inherit;
+    font-size: 10px;
     margin: 0px;
     height: 80%;
     overflow: hidden;

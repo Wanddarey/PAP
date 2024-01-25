@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 16. Jan 2024 um 12:07
+-- Erstellungszeit: 25. Jan 2024 um 11:16
 -- Server-Version: 10.4.28-MariaDB
 -- PHP-Version: 8.2.4
 
@@ -35,8 +35,22 @@ CREATE TABLE `books` (
   `cover` varchar(200) DEFAULT NULL,
   `ageRestricted` tinyint(1) NOT NULL,
   `dateTime` datetime NOT NULL DEFAULT current_timestamp(),
+  `dOP` date NOT NULL,
   `statusId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Daten für Tabelle `books`
+--
+
+INSERT INTO `books` (`Id`, `title`, `author`, `description`, `cover`, `ageRestricted`, `dateTime`, `dOP`, `statusId`) VALUES
+(2, 'Lorem ipsum', 'Lorem ipsum', '    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ', NULL, 0, '2024-01-16 11:52:14', '2024-01-16', 1),
+(3, 'Lorem ipsum', 'Lorem ipsum', '    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ', NULL, 0, '2024-01-16 11:52:14', '2024-01-16', 1),
+(4, 'Lorem ipsum', 'Lorem ipsum', '    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ', NULL, 0, '2024-01-16 11:52:14', '2024-01-16', 1),
+(5, 'Lorem ipsum', 'Lorem ipsum', '    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ', 'kleeRaytheon.png', 0, '2024-01-16 11:52:14', '2024-01-16', 1),
+(6, 'Lorem ipsum', 'Lorem ipsum', '    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ', NULL, 0, '2024-01-16 11:52:14', '2024-01-16', 1),
+(7, 'not ipsum', 'Lorem ipsum', '    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ', NULL, 0, '2024-01-16 11:52:14', '2024-01-16', 1),
+(8, 'patrick gay', 'chocrates', 'patrick encontrou o luis e beijaram-se', 'drakeBigLips.png', 1, '2024-01-23 16:40:13', '2024-01-23', 1);
 
 -- --------------------------------------------------------
 
@@ -94,6 +108,13 @@ CREATE TABLE `language` (
   `short` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Daten für Tabelle `language`
+--
+
+INSERT INTO `language` (`Id`, `language`, `short`) VALUES
+(1, 'English', 'EN');
+
 -- --------------------------------------------------------
 
 --
@@ -108,6 +129,13 @@ CREATE TABLE `pdffiles` (
   `langId` int(11) NOT NULL,
   `statusId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Daten für Tabelle `pdffiles`
+--
+
+INSERT INTO `pdffiles` (`Id`, `bookId`, `fileName`, `dateTime`, `langId`, `statusId`) VALUES
+(1, 8, 'industrial-society-and-its-future', '2024-01-24 08:19:55', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -216,7 +244,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `books`
 --
 ALTER TABLE `books`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT für Tabelle `comments`
@@ -240,13 +268,13 @@ ALTER TABLE `forumpost`
 -- AUTO_INCREMENT für Tabelle `language`
 --
 ALTER TABLE `language`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT für Tabelle `pdffiles`
 --
 ALTER TABLE `pdffiles`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT für Tabelle `reports`
