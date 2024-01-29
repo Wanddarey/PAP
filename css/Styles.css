@@ -1,22 +1,7 @@
 @import url(root.css);
 
-div {
-    outline: none;
-}
-
-a {
-    text-decoration: none;
-    outline: none;
-    color: var(--fontColor);
-}
-
-a:hover {
-    color: var(--linkOnHover);
-}
-
-button {
-    cursor: pointer;
-}
+/*@media  (max-width: 980) and (orientation: landscape)*/
+/*@media only screen and (min-width: 980px)*/
 
 header {
     width: 100dvw;
@@ -70,6 +55,20 @@ header {
     flex-direction: row;
     align-items: center;
     height: var(--headerHeight);
+}
+
+@media only screen and (max-width: 980px) {
+    .webTitle {
+        width: 0px;
+        visibility: hidden;
+    }
+}
+
+@media only screen and (max-width: 808px) {
+    .websiteName {
+        width: 0px;
+        visibility: hidden;
+    }
 }
 
 .logo {

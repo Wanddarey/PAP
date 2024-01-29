@@ -24,3 +24,21 @@
     --red: rgb(255, 0, 0);
     --green: rgb(40, 200, 0);   
 }
+
+div {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    color: var(--fontColor);
+}
+
+a:hover {
+    color: var(--linkOnHover);
+}
+
+button {
+    cursor: pointer;
+}
