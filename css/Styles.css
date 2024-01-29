@@ -249,6 +249,7 @@ body {
     padding: 50px;
     gap: 20px;
     justify-content: center;
+    flex-direction: column;
 }
 
 .noResult {
@@ -334,4 +335,15 @@ body {
     margin: 0px;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.pageButtonContainer {
+    border-radius: var(--standartBorderRadius);
+    height: 50px;
+}
+
+.pageButton {
+    background-color: var(--grey);
+    width: 50px;
+    font-size: var(--fontSize);
 }

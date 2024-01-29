@@ -75,6 +75,35 @@ function displayQuery($books)
 
     echo $displayCard;
   }
+
   echo '</div>';
+  $query = '';
+  if (isset($_GET["query"])) {
+    $query = test_input($_GET["query"]);
+  }
+  $currentPageLink = 'http://localhost/dashboard/pap/query.php?query=' . $query . '&pg=';
+  $pg = 1;
+  if (isset($_GET["pg"])) {
+    $pg = test_input($_GET["pg"]);
+  }
+  $pageButtonContainer = '<div class="pageButtonContainer"> ';
+  
+  $pageButtonContainer .= '<a class="pageButton" href="';
+  if ($pg - 10 >= 1) {
+    $pageButtonContainer .= $currentPageLink . ($pg - 10);
+  }
+  $pageButtonContainer .= '">&#8592</a>';
+
+  $pageButtonContainer .= '<a class="pageButton" href="';
+  if ($pg - 1 >= 1) {
+    $pageButtonContainer .= $currentPageLink . ($pg - 1);
+  }
+  $pageButtonContainer .= '">&#8249</a>';
+
+  $pageButtonContainer .= '<a class="pageButton" href="' . $currentPageLink . ($pg + 1) . '">&#8250</a>';
+
+  $pageButtonContainer .= '<a class="pageButton" href="' . $currentPageLink . ($pg + 10) . '">&#8594</a>';
+
+  echo $pageButtonContainer;
 }
 ?>
