@@ -97,7 +97,7 @@ function dbGetBook($book)
 
 function dbGetFile($bookId)
 {
-    $sql = "SELECT * FROM `pdffiles` WHERE `bookId` = '$bookId'";
+    $sql = "SELECT * FROM `pdffiles` WHERE `bookId` = '$bookId' LIMIT 1";
     return executeStatement($sql);
 }
 

@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["book"]) /*&& is_int($_GE
 </head>
 
 <body>
-    <?php include './html/header.html'; ?>
+    <?php include './html/header.php'; ?>
     <?php include './html/sideMenu.html'; ?>
 
     <div id="lowerBody" class="lowerBody">

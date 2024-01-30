@@ -1,7 +1,14 @@
 <header>
     <div class="menu">
         <div class="menuContainer">
-            <img id="pfpCorner" src="./resources/alexandriaLogoFinal.png" class="pfpContainerCorner" alt="">
+            <?php 
+                if ( 1 == 1) {
+                    echo '<img id="pfpCorner" src="./resources/alexandriaLogoFinal.png" class="pfpContainerCorner" alt="">';
+                } else {
+                    
+                }
+            
+            ?>
         </div>
     </div>
     <a href="/dashboard/pap/">

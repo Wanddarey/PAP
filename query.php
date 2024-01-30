@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <?php include './html/header.html'; ?>
+  <?php include './html/header.php'; ?>
   <?php include './html/sideMenu.html'; ?>
 
   <div class="lowerBody">
