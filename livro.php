@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["book"]) /*&& is_int($_GE
                     <h1 class="bookInfoText">Files:</h1>
                     <div class="filesDisplay">
                         <?php
-                        $files = dbGetFile($result['Id']);
+                        $files = dbGetFiles($result['Id']);
                         if (empty($files)) {
                             echo '<div class="noResult"><h2>No Files</h2></div>';
                         } else {

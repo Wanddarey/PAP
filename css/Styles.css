@@ -249,6 +249,7 @@ body {
     padding: 50px;
     gap: 20px;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -339,11 +340,17 @@ body {
 
 .pageButtonContainer {
     border-radius: var(--standartBorderRadius);
-    height: 50px;
+    overflow: hidden;
+    height: fit-content;
+    width: fit-content;
+    padding: 5px;
+    background-color: var(--grey);
+    background-color: var(--lightGrey);
 }
 
 .pageButton {
-    background-color: var(--grey);
     width: 50px;
-    font-size: var(--fontSize);
+    font-size: 2rem;
+    padding-left: 5px;
+    padding-right: 5px;
 }
