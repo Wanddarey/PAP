@@ -1,6 +1,7 @@
 <header>
     <div class="menu">
         <div class="menuContainer">
+        <a href="#sideMenu"><img id="pfpCorner" src="./resources/hmbmenu.png" class="pfpContainerCorner" alt=""></a>
             <?php 
                 if ( 1 == 1) {
                     echo '<img id="pfpCorner" src="./resources/alexandriaLogoFinal.png" class="pfpContainerCorner" alt="">';

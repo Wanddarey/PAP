@@ -218,6 +218,11 @@ body {
     transition: left ease-in-out 400ms;
 }
 
+.sideMenu:focus-within {
+    left: 0px;
+    transition: left ease-in-out 400ms;
+}
+
 .sideMenuContent {
     margin-right: 50px;
     margin-left: 50px;
@@ -229,6 +234,11 @@ body {
 .sideMenuLink {
     font-size: 1.5rem;
     color: var(--linkColor);
+}
+
+.sideMenuLink:focus + .sideMenu {
+    left: 0px;
+    
 }
 
 .sideMenuSeparator {
