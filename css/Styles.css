@@ -105,6 +105,7 @@ header {
     width: 100%;
     flex-direction: row;
     font-size: var(--fontSize);
+    margin: 0px;
 }
 
 .searchInput {    
@@ -247,6 +248,7 @@ body {
     width: calc(100dvw - 150px);
     display: flex;
     padding: 50px;
+    padding-top: 20px;
     gap: 20px;
     justify-content: center;
     align-items: center;
@@ -346,11 +348,17 @@ body {
     padding: 5px;
     background-color: var(--grey);
     background-color: var(--lightGrey);
+    display: flex;
+    flex-direction: row;
+
+    
 }
 
 .pageButton {
-    width: 50px;
+    width: 30px;
     font-size: 2rem;
     padding-left: 5px;
     padding-right: 5px;
+    text-align: center;
+    
 }

@@ -17,6 +17,36 @@
     include_once './php/DBConnector.php';
     include_once './php/Basics.php';
 
+    $pgs = 0;
+
+    function mkbtn($query, $pg) {
+      $currentPageLink = 'http://localhost/dashboard/pap/query.php?query=' . $query . '&pg=';
+      $pageButtonContainer = '<div class="pageButtonContainer"> ';
+
+      $pgs = countQueryResults($query);
+      consoleLog('pgs - ' . $pgs);
+      $pg = 1;
+      if (isset($_GET["pg"])) {
+        $pg = test_input($_GET["pg"]);
+      }
+
+      if ($pg - 10 >= 1) {
+        $pageButtonContainer .= '<a class="pageButton" href="' . $currentPageLink . ($pg - 10) . '">&#8592</a>';
+      }
+
+      if ($pg > 1) {
+        $pageButtonContainer .= '<a class="pageButton" href="' . $currentPageLink . ($pg - 1) . '">&#8249</a>';
+      }
+
+      if ($pgs > $pg ) {
+        $pageButtonContainer .= '<a class="pageButton" href="' . $currentPageLink . ($pg + 1) . '">&#8250</a>';
+      }
+      if ($pgs >= $pg + 10) {
+        $pageButtonContainer .= '<a class="pageButton" href="' . $currentPageLink . ($pg + 10) . '">&#8594</a>';
+      }
+      return $pageButtonContainer . '</div>';
+    }
+
     if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["query"]) || isset($_GET["pg"])) {
       $query = '';
       if (isset($_GET["query"])) {
@@ -28,8 +58,11 @@
       }
       $result = standartQuery($query, $pg);
       if (!empty($result)) {
+        $pgs = countQueryResults($query);
+        echo mkbtn($query, $pg);
         displayQuery($result);
-      } else if (empty($res)) {
+        
+      } else if (empty($result)) {
         echo '<div class="noResult"><h2>No Results</h2></div>';
       } else {
       }
@@ -39,8 +72,10 @@
       $pg = 1;
       $result = standartQuery($query, $pg);
       if (!empty($result)) {
+        $pgs = countQueryResults($query);
+        echo mkbtn($query, $pg);
         displayQuery($result);
-      } else if (empty($res)) {
+      } else if (empty($result)) {
         echo '<div class="noResult"><h2>No Results</h2></div>';
       } else {
       }
@@ -53,15 +88,16 @@
 <?php
 function displayQuery($books)
 {
+  //Mostra o corpo principal da pagina
   echo '<div id="cardDisplay" class="cardDisplayGrid">';
 
   foreach ($books as $book) {
     $displayCard = '<a href="http://localhost/dashboard/pap/livro.php?book=' . $book['Id'] . '" Title=' . $book['title'] . '><div class="displayCardGrid">';
     $displayHalf = '<div class="displayHalf">';
     if (empty($book['cover'])) {
-      $displayImage = '<img class="displayImage" src="./imagens/displayImages/placeholder.png">';
+      $displayImage = '<img class="displayImage" src="./imagens/gridImages/placeholderGrid.avif">';
     } else {
-      $displayImage = '<img class="displayImage" src="./imagens/displayImages/' . $book['cover'] . '">';
+      $displayImage = '<img class="displayImage" src="./imagens/gridImages/' . $book['cover'] . 'Grid.avif">';
     }
     $displayHalf .= $displayImage . '</div>';
 
@@ -77,33 +113,8 @@ function displayQuery($books)
   }
 
   echo '</div>';
-  $query = '';
-  if (isset($_GET["query"])) {
-    $query = test_input($_GET["query"]);
-  }
-  $currentPageLink = 'http://localhost/dashboard/pap/query.php?query=' . $query . '&pg=';
-  $pg = 1;
-  if (isset($_GET["pg"])) {
-    $pg = test_input($_GET["pg"]);
-  }
-  $pageButtonContainer = '<div class="pageButtonContainer"> ';
   
-  $pageButtonContainer .= '<a class="pageButton" href="';
-  if ($pg - 10 >= 1) {
-    $pageButtonContainer .= $currentPageLink . ($pg - 10);
-  }
-  $pageButtonContainer .= '">&#8592</a>';
-
-  $pageButtonContainer .= '<a class="pageButton" href="';
-  if ($pg - 1 >= 1) {
-    $pageButtonContainer .= $currentPageLink . ($pg - 1);
-  }
-  $pageButtonContainer .= '">&#8249</a>';
-
-  $pageButtonContainer .= '<a class="pageButton" href="' . $currentPageLink . ($pg + 1) . '">&#8250</a>';
-
-  $pageButtonContainer .= '<a class="pageButton" href="' . $currentPageLink . ($pg + 10) . '">&#8594</a>';
-
-  echo $pageButtonContainer;
+  global $pg, $query, $pgs;
+  echo mkbtn($query, $pg);
 }
 ?>

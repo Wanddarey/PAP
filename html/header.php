@@ -21,7 +21,7 @@
         <div class="searchArea">
             <form class="searchBar" id="searchForm" action="/dashboard/pap/query.php" method="get">
                 <input id="searchInput" class="searchInput" placeholder="Livro ou autor" type="text" name="query">
-                <button class="delButton" onclick="deleteText()" type="button">X</button>
+                <button class="delButton" type="reset">X</button>
                 <button class="searchButton" type="submit">Pesquisar</button>
             </form>
         </div>

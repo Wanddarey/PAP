@@ -89,15 +89,43 @@ function standartQuery($query, $pgNumber)
     return executeStatement($sql);
 }
 
+function countQueryResults($query) {
+    // Construct SQL query
+    if (empty($query)) {
+        $sql = "SELECT COUNT(Id) AS total FROM `books`;";
+    } else {
+        $sql = "SELECT COUNT(Id) AS total FROM `books` WHERE `title` LIKE '%" . $query . "%' OR `author` LIKE '%" . $query . "%' OR `dOP` LIKE '%" . $query . "%';";
+    }
+
+    // Execute the query
+    $result = executeStatement($sql);
+
+    // Check if result is valid
+    if (!empty($result) && isset($result[0]['total'])) {
+        $totalCount = (int)$result[0]['total'];
+
+        // Calculate number of pages (assuming 20 results per page)
+        consoleLog('num paginas - '. ceil($totalCount / 20));
+        $pages = ceil($totalCount / 20);
+
+        return $pages;
+    } else {
+        return 0; // or handle the error in an appropriate way
+    }
+}
+
+
+
+
 function dbGetBook($book)
 {
     $sql = "SELECT * FROM `books` WHERE `Id` = '$book'";
     return executeStatement($sql);
 }
 
-function dbGetFile($bookId)
+function dbGetFiles($bookId)
 {
-    $sql = "SELECT * FROM `pdffiles` WHERE `bookId` = '$bookId' LIMIT 1";
+    $sql = "SELECT * FROM `pdffiles` WHERE `bookId` = '$bookId'";
     return executeStatement($sql);
 }
 
