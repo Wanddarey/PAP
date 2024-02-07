@@ -7,7 +7,7 @@
     <title>Livro</title>
     <?php include './html/basicImports.html'; ?>
     <style>
-        @import url('./css/ReadCss');
+        @import url('./css/livro.css');
     </style>
 </head>
 
@@ -17,12 +17,16 @@
 
     <div class="lowerBody">
         <?php
-        include_once 'DBConnector.php';
+        include_once './php/DBConnector.php';
         
         if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["file"])) {
             $fileId = test_input($_GET["file"]);
-            $file = getFile($fileId);
-
+            $file = dbGetBookFile($fileId)[0];
+            if (empty($file)) {
+            echo '<div class="noResult"><h2>File not found</h2></div>';
+            } else {
+            echo '<embed class="pdfEmbed" src="./resources/pdf/' . $file['fileName'] . '.pdf" />';
+            }
         } else {
             echo '<div class="noResult"><h2>File not found</h2></div>';
         }

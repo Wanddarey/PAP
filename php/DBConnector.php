@@ -129,8 +129,12 @@ function dbGetFiles($bookId)
     return executeStatement($sql);
 }
 
-function dbGetLang($langId)
-{
+function dbGetBookFile($fileId) {
+    $sql = "SELECT * FROM `pdffiles` WHERE `Id` = '$fileId'";
+    return executeStatement($sql);
+}
+
+function dbGetLang($langId) {
     $sql = "SELECT * FROM `language` WHERE `Id` = '$langId'";
     return executeStatement($sql);
 }
