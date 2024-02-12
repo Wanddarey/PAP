@@ -254,7 +254,6 @@ body {
     background-color: var(--grey);
     position: absolute;
     top: 75px;
-    grid-area: main;
     width: calc(100dvw - 150px);
     display: flex;
     padding: 50px;
@@ -263,12 +262,13 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    min-height: calc(100dvh - 75);
 }
 
 .noResult {
     border-radius: var(--standartBorderRadius);
     width: 80%;
-    background-color: red;
+    background-color: var(--red);
     height: 50px;
     display: flex;
     justify-content: center;

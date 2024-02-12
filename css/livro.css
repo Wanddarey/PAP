@@ -102,7 +102,13 @@ body {
     text-overflow: ellipsis;
 }
 
+.lowerBodyRead {
+    padding: 0px;
+    height: calc(100dvh - 75);
+    width: calc(100dvw - 50px);
+}
+
 .pdfEmbed {
-    height: 80dvh;
-    width: 90%;
+    height:100%;
+    width: 100%;
 }

@@ -15,7 +15,7 @@
     <?php include './html/header.php'; ?>
     <?php include './html/sideMenu.html'; ?>
 
-    <div class="lowerBody">
+    <div class="lowerBody lowerBodyRead">
         <?php
         include_once './php/DBConnector.php';
         
