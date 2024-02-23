@@ -119,23 +119,28 @@ function countQueryResults($query) {
 
 function dbGetBook($book)
 {
-    $sql = "SELECT * FROM `books` WHERE `Id` = '$book'";
+    $sql = "SELECT * FROM `books` WHERE `Id` = '$book';";
     return executeStatement($sql);
 }
 
 function dbGetFiles($bookId)
 {
-    $sql = "SELECT * FROM `pdffiles` WHERE `bookId` = '$bookId'";
+    $sql = "SELECT * FROM `pdffiles` WHERE `bookId` = '$bookId';";
     return executeStatement($sql);
 }
 
 function dbGetBookFile($fileId) {
-    $sql = "SELECT * FROM `pdffiles` WHERE `Id` = '$fileId'";
+    $sql = "SELECT * FROM `pdffiles` WHERE `Id` = '$fileId';";
     return executeStatement($sql);
 }
 
 function dbGetLang($langId) {
-    $sql = "SELECT * FROM `language` WHERE `Id` = '$langId'";
+    $sql = "SELECT * FROM `language` WHERE `Id` = '$langId';";
+    return executeStatement($sql);
+}
+
+function Login($userName) {
+    $sql = "SELECT * FROM `users` WHERE `userName` = '$userName';";
     return executeStatement($sql);
 }
 

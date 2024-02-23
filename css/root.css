@@ -42,3 +42,11 @@ a:hover {
 button {
     cursor: pointer;
 }
+
+h1 {
+    margin: 0px;
+}
+
+p {
+    margin: 0px;
+}

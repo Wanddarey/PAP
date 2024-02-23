@@ -15,6 +15,52 @@ header {
     z-index: 5;
 }
 
+.border {
+    border-style: var(--grey);
+    border: 0px;
+    padding: 5px;
+}
+
+.forms {
+    padding: 20px;
+    background-color: var(--darkGrey);
+    width: 95%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    border-radius: var(--standartBorderRadius);
+    color: var(--fontColor);
+}
+
+.formElement {
+    width: 100%;
+    border-radius: var(--standartBorderRadius);
+    color: var(--fontColor);
+
+}
+
+.formButton {
+    width: 200px;
+    border-radius: var(--standartBorderRadius);
+    color: var(--fontColor);
+
+}
+
+.formElementColor {
+    background-color: var(--grey);
+    border-color: var(--grey);
+}
+
+.formElementColor:hover {
+    background-color: var(--onHoverColor);
+}
+
+.formElementColor:focus {
+    background-color: var(--onFocusColor);
+}
+
 .menu {
     grid-column: 1;
     display: flex;
