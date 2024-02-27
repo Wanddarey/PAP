@@ -21,11 +21,11 @@
         
         if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["file"])) {
             $fileId = test_input($_GET["file"]);
-            $file = dbGetBookFile($fileId)[0];
+            $file = dbGetBookFile($fileId);
             if (empty($file)) {
             echo '<div class="noResult"><h2>File not found</h2></div>';
             } else {
-            echo '<embed class="pdfEmbed" src="./resources/pdf/' . $file['fileName'] . '.pdf" />';
+            echo '<embed class="pdfEmbed" src="./resources/pdf/' . $file[0]['fileName'] . '.pdf" />';
             }
         } else {
             echo '<div class="noResult"><h2>File not found</h2></div>';

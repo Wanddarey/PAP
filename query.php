@@ -63,7 +63,7 @@
         displayQuery($result);
         
       } else if (empty($result)) {
-        echo '<div class="noResult"><h2>No Results</h2></div>';
+        echo '<div class="noResult" style="margin: 0px"><h2>No Results</h2></div>';
       } else {
       }
 
@@ -76,7 +76,7 @@
         echo mkbtn($query, $pg);
         displayQuery($result);
       } else if (empty($result)) {
-        echo '<div class="noResult"><h2>No Results</h2></div>';
+        echo '<div class="noResult" style="margin: 0px"><h2>No Results</h2></div>';
       } else {
       }
     }

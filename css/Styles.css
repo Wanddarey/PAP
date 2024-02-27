@@ -312,6 +312,7 @@ body {
 }
 
 .noResult {
+    margin: 50px;
     border-radius: var(--standartBorderRadius);
     width: 80%;
     background-color: var(--red);
