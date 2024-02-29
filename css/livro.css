@@ -103,8 +103,11 @@ body {
 }
 
 .lowerBodyRead {
+    position: absolute;
+    left: 50px;
+    top: 75px;
     padding: 0px;
-    height: calc(100dvh - 75);
+    height: 100%;
     width: calc(100dvw - 50px);
 }
 
