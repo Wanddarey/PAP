@@ -18,7 +18,7 @@ RUN openssl req -x509 -sha256 -nodes -newkey rsa:2048 -days 365 -keyout localhos
 
 
 # Copy website files to container
-COPY C:/xampp/htdocs/dashboard/PAP /var/www/html
+COPY ./ /var/www/html
 
 # Expose port 80
 EXPOSE 80
