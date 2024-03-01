@@ -1,10 +1,10 @@
 <header>
     <div class="menu">
         <div class="menuContainer">
-        <a href="#sideMenu"><img id="pfpCorner" src="./resources/hmbmenu.png" class="pfpContainerCorner" alt=""></a>
+        <a href="#sideMenu"><img id="pfpCorner" src="./resources/hmbmenu.webp" class="pfpContainerCorner" alt=""></a>
             <?php 
                 if ( 1 == 1) {
-                    echo '<img id="pfpCorner" src="./resources/alexandriaLogoFinal.png" class="pfpContainerCorner" alt="">';
+                    echo '<img id="pfpCorner" src="./resources/alexandriaLogoFinal.webp" class="pfpContainerCorner" alt="">';
                 } else {
                     
                 }
@@ -14,7 +14,7 @@
     </div>
     <a href="/dashboard/pap/">
         <div class="websiteName">
-            <img class="logo" src="./resources/alexandriaLogoFinal.png" alt="">
+            <img class="logo" src="./resources/alexandriaLogoFinal.webp" alt="">
             <h1 class="webTitle">Alexandria</h1>
         </div>
     </a>

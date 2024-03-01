@@ -413,7 +413,7 @@ body {
 }
 
 .pageButton {
-    width: 20px;
+    /*width: 20px;*/
     font-size: 1rem;
     padding-left: 5px;
     padding-right: 5px;

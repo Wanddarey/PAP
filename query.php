@@ -31,18 +31,20 @@
       }
 
       if ($pg - 10 >= 1) {
-        $pageButtonContainer .= '<a class="pageButton" href="' . $currentPageLink . ($pg - 10) . '">&#8592</a>';
+        $pageButtonContainer .= '<a class="pageButton" href="' . $currentPageLink . ($pg - 10) . '"><<</a>';
       }
 
       if ($pg > 1) {
-        $pageButtonContainer .= '<a class="pageButton" href="' . $currentPageLink . ($pg - 1) . '">&#8249</a>';
+        $pageButtonContainer .= '<a class="pageButton" href="' . $currentPageLink . ($pg - 1) . '"><</a>';
       }
 
+      $pageButtonContainer .= '<p class="pageButton">' . $pg . '/' . $pgs . '</p>';
+
       if ($pgs > $pg ) {
-        $pageButtonContainer .= '<a class="pageButton" href="' . $currentPageLink . ($pg + 1) . '">&#8250</a>';
+        $pageButtonContainer .= '<a class="pageButton" href="' . $currentPageLink . ($pg + 1) . '">></a>';
       }
       if ($pgs >= $pg + 10) {
-        $pageButtonContainer .= '<a class="pageButton" href="' . $currentPageLink . ($pg + 10) . '">&#8594</a>';
+        $pageButtonContainer .= '<a class="pageButton" href="' . $currentPageLink . ($pg + 10) . '">>></a>';
       }
       return $pageButtonContainer . '</div>';
     }
@@ -95,9 +97,9 @@ function displayQuery($books)
     $displayCard = '<a href="http://localhost/dashboard/pap/livro.php?book=' . $book['Id'] . '" Title=' . $book['title'] . '><div class="displayCardGrid">';
     $displayHalf = '<div class="displayHalf">';
     if (empty($book['cover'])) {
-      $displayImage = '<img class="displayImage" src="./imagens/gridImages/placeholderGrid.avif">';
+      $displayImage = '<img class="displayImage" src="./imagens/gridImages/placeholderGrid.webp">';
     } else {
-      $displayImage = '<img class="displayImage" src="./imagens/gridImages/' . $book['cover'] . 'Grid.avif">';
+      $displayImage = '<img class="displayImage" src="./imagens/gridImages/' . $book['cover'] . 'Grid.webp">';
     }
     $displayHalf .= $displayImage . '</div>';
 
