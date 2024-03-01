@@ -7,7 +7,7 @@ body {
 .bookInfoCard {
     background-color: var(--lightGrey);
     border-radius: var(--standartBorderRadius);
-    height: 80dvh;
+    height:80dvh;
     width: 80dvw;
     display: flex;
     flex-direction: row;
@@ -20,6 +20,16 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+@media only screen and (max-width: 800px) {
+    .bookInfoCard {
+        flex-direction: column;
+    }
+    .bookInfoCardHalf {
+        height: 50%;
+        width: 100%;
+    }  
 }
 
 .infoContainer {
@@ -75,12 +85,14 @@ body {
 }
 
 .fileRow {
+    width: 100%;
     background-color: var(--grey);
     height: fit-content;
     padding-left: 10px;
     padding-right: 10px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(10%, calc(50% - 10px)));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, calc(50% - 10px)) , 1fr));
     /*grid-template-columns: repeat(minmax(10%, 45%));*/
     align-items: center;
     gap: 10px;

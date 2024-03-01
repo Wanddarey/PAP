@@ -74,7 +74,7 @@ header {
     display: flex;
     flex-direction: row;
     height: 50px;
-    width: 80%;
+    width: 95%;
     gap: 10px;
     z-index: 7;
 }
@@ -110,7 +110,7 @@ header {
     }
 }
 
-@media only screen and (max-width: 808px) {
+@media only screen and (max-width: 800px) {
     .websiteName {
         width: 0px;
         visibility: hidden;
@@ -137,7 +137,7 @@ header {
 
 .searchArea {
     height: 50px;
-    width: 80%;
+    width: 95%;
     display: flex;
     align-items: center;
     justify-content: center;

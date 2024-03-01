@@ -12,11 +12,11 @@
             ?>
         </div>
     </div>
-    <a href="/dashboard/pap/">
-        <div class="websiteName">
-            <img class="logo" src="./resources/alexandriaLogoFinal.webp" alt="">
-            <h1 class="webTitle">Alexandria</h1>
-        </div>
+    <a class="websiteName" href="/dashboard/pap/">
+        
+        <img class="logo" src="./resources/alexandriaLogoFinal.webp" alt="">
+        <h1 class="webTitle">Alexandria</h1>
+        
     </a>
     <div class="menu2">
         <div class="searchArea">
