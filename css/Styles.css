@@ -228,20 +228,6 @@ header {
     background-color: var(--green);
 }
 
-body {
-    font-family: var(--font);
-    font-size: var(--fontSize);
-    width: 100dvw;
-    height: 100dvh;
-    margin: 0%;
-    display: flex;
-    flex-direction: column;
-    color: var(--fontColor);
-    overflow-y: scroll;
-    overflow-x: hidden;
-    background-color: var(--grey);
-}
-
 .sideMenu {
     position: fixed;
     width: 300px;
@@ -308,7 +294,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: calc(100dvh - 75);
+    /*min-height: calc(100dvh - 75);*/
 }
 
 .noResult {
