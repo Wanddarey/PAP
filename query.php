@@ -14,9 +14,9 @@
 
   <div class="lowerBody">
     <?php
+    
     include_once './php/DBConnector.php';
     include_once './php/Basics.php';
-
     $pgs = 0;
 
     function mkbtn($query, $pg) {
@@ -97,7 +97,7 @@ function displayQuery($books)
     $displayCard = '<a href="http://localhost/dashboard/pap/livro.php?book=' . $book['Id'] . '" Title=' . $book['title'] . '><div class="displayCardGrid">';
     $displayHalf = '<div class="displayHalf">';
     if (empty($book['cover'])) {
-      $displayImage = '<img class="displayImage" src="./imagens/gridImages/placeholderGrid.webp">';
+      $displayImage = '<img class="displayImage" src="./imagens/gridImages/loremGrid.webp">';
     } else {
       $displayImage = '<img class="displayImage" src="./imagens/gridImages/' . $book['cover'] . 'Grid.webp">';
     }

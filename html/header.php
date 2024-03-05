@@ -1,12 +1,12 @@
 <header>
     <div class="menu">
         <div class="menuContainer">
-        <a href="#sideMenu"><img id="pfpCorner" src="./resources/hmbmenu.webp" class="pfpContainerCorner" alt=""></a>
+        <a href="#sideMenu" class="pfpContainerCorner"><img id="pfpCorner" src="./resources/hmbmenu.webp" class="pfpImg" alt=""></a>
             <?php 
-                if ( 1 == 1) {
-                    echo '<img id="pfpCorner" src="./resources/alexandriaLogoFinal.webp" class="pfpContainerCorner" alt="">';
+                if (1 == 1) {
+                    echo '<a href="./Login.php" class="pfpContainerCorner"><img id="pfpCorner" src="./resources/alexandriaLogoFinal.webp" class="pfpImg" alt=""></a>';
                 } else {
-                    
+                    echo '<a href="./Account.php" class="pfpContainerCorner"><img id="pfpCorner" src="./resources/alexandriaLogoFinal.webp" class="pfpImg" alt=""></a>';
                 }
             
             ?>

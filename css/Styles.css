@@ -80,13 +80,18 @@ header {
 }
 
 .pfpContainerCorner {
-    aspect-ratio: 1/1;
     border-radius: 50%;
     background-color: var(--grey);
     border: 2px;
     border-color: var(--grey);
     border-style: solid;
     z-index: 8;
+    overflow: hidden;
+}
+
+.pfpImg {
+    aspect-ratio: 1/1;
+    height: 50px;
 }
 
 .pfpContainerCorner:hover {
@@ -148,7 +153,7 @@ header {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    width: 85%;
     flex-direction: row;
     font-size: var(--fontSize);
     margin: 0px;

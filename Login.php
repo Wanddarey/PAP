@@ -8,7 +8,7 @@ $userName;
 $userNameError = "";
 $password;
 $passwordError = "";
-if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["userName"] == "" && $_POST["password"] == "") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["userName"] != "" && $_POST["password"] != "") {
     $userName = test_input($_POST["userName"]);
     $password = test_input($_POST["password"]);
     $user = Login($userName)[0];

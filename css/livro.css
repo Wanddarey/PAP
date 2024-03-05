@@ -124,6 +124,6 @@ body {
 }
 
 .pdfEmbed {
-    height:100%;
+    height: calc(100dvh - 75px);
     width: 100%;
 }
