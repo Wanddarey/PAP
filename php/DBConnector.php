@@ -2,7 +2,7 @@
 //$servername = "sql212.infinityfree.com";
 //$username = "if0_34623021";
 //$password = "vSFEzWq8xLlucvL";
-$DBname = "DemoPAPdb";
+$DBname = "papdb";
 $servername = "localhost";
 $username = "root";
 $password = "";

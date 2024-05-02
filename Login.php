@@ -8,7 +8,7 @@ $userName;
 $userNameError = "";
 $password;
 $passwordError = "";
-if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["userName"] != "" && $_POST["password"] != "") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["userName"] != "" && $_POST["password"] != "" && !empty($_POST["userName"]) && !empty($_POST["password"])) {
     $userName = test_input($_POST["userName"]);
     $password = test_input($_POST["password"]);
     $user = Login($userName)[0];
@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["userName"] != "" && $_POST["
     if (isset($user)) {
         if ($user["password"] == $password) {
             $userNameError ="hehehehaw";
+            
         } else {
             $passwordError = "<p>Incorrect Password</P>";
         }
@@ -23,17 +24,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["userName"] != "" && $_POST["
         $userNameError = "<p>This user doesn't exist</P>";
     }
 
-} elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
+} else {
     if (empty($_POST["userName"])) {
         $userNameError = "<p>Please fill in this field</P>";
     }
     if (empty($_POST["password"])) {
         $passwordError = "<p>Please fill in this field</P>";
     }
-} else {
+}
     $userNameError = "";
     $passwordError = "";
-}
+
 ?>
 
 <head>
