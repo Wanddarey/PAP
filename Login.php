@@ -2,8 +2,9 @@
 <html lang="en">
 
 <?php
-include './php/Basics.php';
-include './php/DBConnector.php';
+error_reporting(E_ALL);
+require_once './php/Basics.php';
+require_once './php/DBConnector.php';
 $userName;
 $userNameError = "";
 $password;
@@ -11,8 +12,10 @@ $passwordError = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["userName"] != "" && $_POST["password"] != "") {
     $userName = test_input($_POST["userName"]);
     $password = test_input($_POST["password"]);
-    $user = Login($userName)[0];
-    consoleLog($user["Id"] . ", " . $user["userName"] . ", " . $user["password"]);
+    consoleLog($userName . ", " . $password);
+    $user = doLogin($userName);
+    consoleLog($user[0]["Id"] . ", " . $user["userName"] . ", " . $user["password"]);
+
     if (isset($user)) {
         if ($user["password"] == $password) {
             $userNameError ="hehehehaw";
@@ -41,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["userName"] != "" && $_POST["
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <?php
-    include './html/basicImports.html';
+    require_once './html/basicImports.html';
     ?>
     <style>
         @import url('./css/login.Css');
@@ -49,16 +52,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["userName"] != "" && $_POST["
 </head>
 
 <body>
-    <?php include './html/header.php'; ?>
-    <?php include './html/sideMenu.html'; ?>
+    <?php require_once './html/header.php'; ?>
+    <?php require_once './html/sideMenu.html'; ?>
 
     <div class="lowerBody">
 
-        <form class="forms" action="./Login.php" method="post">
+        <form class="forms" action="Login.php" method="post">
             <h1>Login</h1>
-            <input id="" class="formElement formElementColor border" placeholder="Username" type="text" name="userName">
+            <input id="userName" class="formElement formElementColor border" placeholder="Username" type="text" name="userName">
             <?php echo $userNameError;?>
-            <input id="" class="formElement formElementColor border" placeholder="Password" type="password" name="password">
+            <input id="password" class="formElement formElementColor border" placeholder="Password" type="password" name="password">
             <?php echo $passwordError;?>
             <button class="formButton formElementColor border" type="reset">Clear</button>
             <button class="formButton formElementColor border" type="submit">Login</button>

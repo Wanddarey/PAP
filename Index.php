@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
-    <?php include './html/basicImports.html'; ?>
+    <?php require_once './html/basicImports.html'; ?>
 </head>
 <body>
-    <?php include './html/header.php'; ?>
-    <?php include './html/sideMenu.html'; ?>
+    <?php require_once './html/header.php'; ?>
+    <?php require_once './html/sideMenu.html'; ?>
 
     <div id="lowerBody" class="lowerBody">
 

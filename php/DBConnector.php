@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 //$servername = "sql212.infinityfree.com";
 //$username = "if0_34623021";
 //$password = "vSFEzWq8xLlucvL";
@@ -7,7 +8,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $conn;
-include_once 'Basics.php';
+require_once 'Basics.php';
 
 function tryconnect()
 {
@@ -90,14 +91,12 @@ function standartQuery($query, $pgNumber)
 }
 
 function countQueryResults($query) {
-    // Construct SQL query
     if (empty($query)) {
         $sql = "SELECT COUNT(Id) AS total FROM `books`;";
     } else {
         $sql = "SELECT COUNT(Id) AS total FROM `books` WHERE `title` LIKE '%" . $query . "%' OR `author` LIKE '%" . $query . "%' OR `dOP` LIKE '%" . $query . "%';";
     }
 
-    // Execute the query
     $result = executeStatement($sql);
 
     // Check if result is valid
@@ -139,9 +138,12 @@ function dbGetLang($langId) {
     return executeStatement($sql);
 }
 
-function Login($userName) {
+function doLogin($userName) {
     $sql = "SELECT * FROM `users` WHERE `userName` = '$userName';";
-    return executeStatement($sql);
-}
+    //consoleLog(executeStatement($sql));
+    //consoleLog($sql);
+    //executeStatement
 
-?>
+    return executeStatement($sql);
+    
+}

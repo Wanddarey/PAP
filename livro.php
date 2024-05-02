@@ -1,6 +1,6 @@
 <?php
-include_once './php/DBConnector.php';
-include_once './php/Basics.php';
+require_once './php/DBConnector.php';
+require_once './php/Basics.php';
 
 $result;
 
@@ -58,15 +58,15 @@ function setImg()
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Livro</title>
-    <?php include './html/basicImports.html'; ?>
+    <?php require_once './html/basicImports.html'; ?>
     <style>
         @import url('./css/livro.css');
     </style>
 </head>
 
 <body>
-    <?php include './html/header.php'; ?>
-    <?php include './html/sideMenu.html'; ?>
+    <?php require_once './html/header.php'; ?>
+    <?php require_once './html/sideMenu.html'; ?>
 
     <div id="lowerBody" class="lowerBody">
         <card class="bookInfoCard">
