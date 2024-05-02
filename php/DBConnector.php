@@ -28,11 +28,14 @@ function tryconnect()
 function executeStatement($sql)
 {
     global $conn;
+    //TODO: descobrir porque é que esta bosta devolve false no login
     if (tryconnect()) {
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
+    } else {
+        consoleLog('Failed to connect to DB');
     }
 }
 
