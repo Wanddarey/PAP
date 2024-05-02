@@ -15,8 +15,8 @@
 </head>
 
 <body>
-    <?php include './html/header.php'; ?>
-    <?php include './html/sideMenu.html'; ?>
+    <?php require_once './html/header.php'; ?>
+    <?php require_once './html/sideMenu.html'; ?>
 
     <div class="lowerBody">
         <div class="cardDisplayGrid">

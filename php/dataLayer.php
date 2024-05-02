@@ -1,6 +1,9 @@
+-------------
+| Não usado |
+-------------
 <?php
-include_once 'DBConnector.php';
-include_once 'Basics.php';
+require_once 'DBConnector.php';
+require_once 'Basics.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["query"])) {
 
