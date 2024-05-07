@@ -6,15 +6,15 @@ error_reporting(E_ALL);
 $DBname = "papdb";
 $servername = "localhost";
 $username = "root";
-$password = "";
+$dbPassword = "";
 $conn;
 require_once 'Basics.php';
 
 function tryconnect()
 {
-    global $servername, $username, $password, $conn, $DBname;
+    global $servername, $username, $dbPassword, $conn, $DBname;
     try {
-        $conn = new PDO("mysql:host=$servername;dbname=$DBname", $username, $password);
+        $conn = new PDO("mysql:host=$servername;dbname=$DBname", $username, $dbPassword);
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         echo "Connected successfully";
