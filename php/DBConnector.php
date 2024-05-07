@@ -17,10 +17,10 @@ function tryconnect()
         $conn = new PDO("mysql:host=$servername;dbname=$DBname", $username, $dbPassword);
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "Connected successfully";
+        //echo "Connected successfully";
         return true;
     } catch (PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
+        //echo "Connection failed: " . $e->getMessage();
         return false;
     }
 }
@@ -28,7 +28,6 @@ function tryconnect()
 function executeStatement($sql)
 {
     global $conn;
-    //TODO: descobrir porque é que esta bosta devolve false no login
     if (tryconnect()) {
         $stmt = $conn->prepare($sql);
         $stmt->execute();
