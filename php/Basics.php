@@ -15,4 +15,3 @@ function consoleLog($data)
     }
     echo "<script>console.log('" . $output . "' );</script>";
 }
-?>
