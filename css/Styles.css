@@ -89,9 +89,24 @@ header {
     overflow: hidden;
 }
 
+.userInfoContainer {
+    border-radius: 0%;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+}
+
+.infoContainer {
+    display: flex;
+    width: 150px;
+    padding: 5px;
+    align-items: center;
+}
+
 .pfpImg {
     aspect-ratio: 1/1;
     height: 50px;
+    border-radius: 0%;
 }
 
 .pfpContainerCorner:hover {

@@ -16,7 +16,7 @@
 
 <body>
     <?php require_once './html/header.php'; ?>
-    <?php require_once './html/sideMenu.html'; ?>
+    <?php require_once './html/sideMenu.php'; ?>
 
     <div class="lowerBody">
         <div class="cardDisplayGrid">

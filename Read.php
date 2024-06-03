@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php session_start(); ?>
+<?php require_once './html/header.php'; ?>
+<?php require_once './html/sideMenu.php'; ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +16,6 @@
 </head>
 
 <body>
-    <?php require_once './html/header.php'; ?>
-    <?php require_once './html/sideMenu.html'; ?>
 
     <div class="lowerBodyRead">
         <?php

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php
-error_reporting(E_ALL);
+session_start();
 require_once './php/Basics.php';
 require_once './php/DBConnector.php';
 $userName;
@@ -13,12 +13,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["userName"] != "" && $_POST["
     $userName = test_input($_POST["userName"]);
     $password = test_input($_POST["password"]);
     consoleLog($userName . ", " . $password);
-    $user = doLogin($userName);
-    consoleLog($user[0]["Id"] . ", " . $user["userName"] . ", " . $user["password"]);
+    $user = doLogin($userName)[0];
+    consoleLog($user["Id"] . ", " . $user["userName"] . ", " . $user["password"]);
 
     if (isset($user)) {
-        if ($user[0]["password"] == $password) {
-            $userNameError ="hehehehaw";
+        if ($user["password"] == $password) {
+            $_SESSION["user"] = $user;
+            alert("Logged in sucessfully");
+            header("Location: Index.php");
+            exit();
             
         } else {
             $passwordError = "<p>Incorrect Password</P>";
@@ -54,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["userName"] != "" && $_POST["
 
 <body>
     <?php require_once './html/header.php'; ?>
-    <?php require_once './html/sideMenu.html'; ?>
+    <?php require_once './html/sideMenu.php'; ?>
 
     <div class="lowerBody">
 

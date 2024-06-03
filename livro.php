@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once './php/DBConnector.php';
 require_once './php/Basics.php';
 
@@ -29,9 +30,9 @@ function printInfo()
         } else {
             foreach ($files as $file) {
                 $fileRow = '<a href="./read.php?file=' . $file['Id'] . '" class="fileRow">';
-                $lang = dbGetLang($file['langId']);
+                $lang = dbGetLang($file['langId'])[0];
                 $fileName = '<h3 class="fileRowElement" title=" Name: ' . $file['fileName'] . '">' . $file['fileName'] . '</h3>';
-                $fileLang = '<h3 class="fileRowElement" title=" Language: ' . $lang[0]['language'] . '">' . $lang[0]['short'] . '</h3>';
+                $fileLang = '<h3 class="fileRowElement" title=" Language: ' . $lang['language'] . '">' . $lang['short'] . '</h3>';
                 $fileRow .= $fileName . $fileLang . '</a>';
                 echo $fileRow;
             }
@@ -66,7 +67,7 @@ function setImg()
 
 <body>
     <?php require_once './html/header.php'; ?>
-    <?php require_once './html/sideMenu.html'; ?>
+    <?php require_once './html/sideMenu.php'; ?>
 
     <div id="lowerBody" class="lowerBody">
         <card class="bookInfoCard">
