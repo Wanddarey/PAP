@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 02. Mai 2024 um 13:38
+-- Erstellungszeit: 04. Jun 2024 um 15:01
 -- Server-Version: 10.4.28-MariaDB
 -- PHP-Version: 8.2.4
 
@@ -32,7 +32,7 @@ CREATE TABLE `books` (
   `UId` int(11) NOT NULL,
   `title` varchar(200) NOT NULL,
   `author` varchar(200) NOT NULL,
-  `description` varchar(200) NOT NULL,
+  `description` varchar(600) NOT NULL,
   `cover` varchar(200) DEFAULT NULL,
   `ageRestricted` tinyint(1) NOT NULL,
   `dateTime` datetime NOT NULL DEFAULT current_timestamp(),
