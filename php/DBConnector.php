@@ -149,3 +149,10 @@ function doLogin($userName) {
     return executeStatement($sql);
     
 }
+
+function addBook($uId, $title, $author, $description, $cover, $aR, $dOP) {
+    $sql = "INSERT INTO `books` (`UId`, `title`, `author`, `description`, `cover`, `ageRestricted`, `dOP`, `statusId`) 
+        VALUES ($uId, '$title', '$author', '$description', null, '$aR', $dOP, 1)";
+    return executeStatement($sql);
+
+}

@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["userName"] != "" && $_POST["
 
     <div class="lowerBody">
 
-        <form class="forms" action="Login.php" method="post">
+        <form class="forms" action="Login.php" method="POST">
             <h1>Login</h1>
             <input id="userName" class="formElement formElementColor border" placeholder="Username" type="text" name="userName">
             <?php echo $userNameError;?>
