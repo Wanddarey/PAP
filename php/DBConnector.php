@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 //$servername = "sql212.infinityfree.com";
 //$username = "if0_34623021";
 //$password = "vSFEzWq8xLlucvL";
-$DBname = "demopapdb";
+$DBname = "demo";
 $servername = "localhost";
 $username = "root";
 $dbPassword = "";
@@ -149,3 +149,4 @@ function doLogin($userName) {
     return executeStatement($sql);
     
 }
+
