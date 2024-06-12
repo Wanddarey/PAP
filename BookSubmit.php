@@ -14,8 +14,7 @@ $cover;
 $dOP;
 $aR;
 
-if (
-    $_SERVER["REQUEST_METHOD"] == "POST"
+if ($_SERVER["REQUEST_METHOD"] == "POST"
     && $_POST["title"] != ""
     && $_POST["author"] != ""
     && $_POST["description"] != ""
@@ -70,12 +69,12 @@ if (
     <div id="lowerBody" class="lowerBody">
         <form class="forms" method="post" enctype="multipart/form-data">
             <h1>Title</h1>
-            <input id="title" class="formElement formElementColor border" placeholder="title" type="text" name="title">
+            <input id="title" class="formElement formElementColor border" placeholder="Title" type="text" name="title">
             <h1>Author</h1>
-            <input id="author" class="formElement formElementColor border" placeholder="author" type="text"
+            <input id="author" class="formElement formElementColor border" placeholder="Author" type="text"
                 name="author">
             <h1>Description</h1>
-            <textarea id="description" class="formElement formElementColor border" placeholder="description" type="text"
+            <textarea id="descrpition" class="formElement formElementColor border" type="text"
                 maxlength="600" name="description"> </textarea>
             <h1>Cover</h1>
             <input id="cover" class="formElement formElementColor border" placeholder="cover" type="file"

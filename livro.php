@@ -38,6 +38,9 @@ function printInfo()
             }
         }
         echo '</div>';
+        if ($_SESSION['user']['Id'] == $result['UId']) {
+            echo '<a class="formButton formElementColor border" href="./">Edit</a>';
+        }
     }
 }
 function setImg()
