@@ -20,6 +20,19 @@ function alert($msg) {
     echo "<script type='text/javascript'>alert('$msg');</script>";
 }
 
+function get_mime_type(string $filename)
+{
+    $info = finfo_open(FILEINFO_MIME_TYPE);
+    if (!$info) {
+        return false;
+    }
+
+    $mime_type = finfo_file($info, $filename);
+    finfo_close($info);
+
+    return $mime_type;
+}
+
 
 
 /*

@@ -15,18 +15,18 @@ $dOP;
 $aR;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"
-    && $_POST["title"] != ""
-    && $_POST["author"] != ""
-    && $_POST["description"] != ""
-    /*&& isset($cover)*/
-    && $_POST["dOP"] != ""
+    && isset($_POST["title"])
+    && isset($_POST["author"])
+    && isset($_POST["description"])
+    && isset($_FILES['cover'])
+    && isset($_POST["dOP"])
     && $_SESSION['user']['statusId'] != 2
 ) {
 
     $title = test_input($_POST["title"]);
     $author = test_input($_POST["author"]);
     $description = test_input($_POST["description"]);
-    $cover = "";
+    //$cover = "";
     $dOP = test_input($_POST["dOP"]);
     $aR;
     if (empty($_POST["ageRestricted"])) {

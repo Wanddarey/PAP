@@ -333,7 +333,8 @@ header {
 /*fix sizing error*/
 .cardDisplayGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    /*grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));*/
+    grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
     border-radius: var(--standartBorderRadius);
     background-color: var(--lightGrey);
     height: 100%;

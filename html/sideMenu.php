@@ -7,6 +7,8 @@
         <?php
             if ( empty($_SESSION['user']) ) {
                 echo '<a class="sideMenuLink" href="./Login.php">Login</a>';
+                echo '<div class="sideMenuSeparator"></div>';
+                echo '<a class="sideMenuLink" href="./createaccount.php">Create Account</a>';
             } else {
                 echo '<a class="sideMenuLink" href="./Account.php">Account</a>
                     <div class="sideMenuSeparator"></div>
