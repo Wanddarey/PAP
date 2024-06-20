@@ -333,8 +333,8 @@ header {
 /*fix sizing error*/
 .cardDisplayGrid {
     display: grid;
-    /*grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));*/
-    grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    /*grid-template-columns: repeat(auto-fit, minmax(300px, 500px));*/
     border-radius: var(--standartBorderRadius);
     background-color: var(--lightGrey);
     height: 100%;
@@ -425,4 +425,9 @@ header {
     padding-left: 5px;
     padding-right: 5px;
     text-align: center;
+}
+
+.addBookImage {
+    aspect-ratio: 1/1;
+    max-width: 80%;
 }

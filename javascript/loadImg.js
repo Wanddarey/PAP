@@ -2,12 +2,11 @@
 //onchange="imgchng()"
 
 function imgchng() {
-
     const reader = new FileReader()
   
-    let files = document.getElementById('').files
+    let files = document.getElementById('cover').files
     reader.onload = async (event) => {
-        document.getElementById('').setAttribute('src', event.target.result)
+        document.getElementById('coverImg').setAttribute('src', event.target.result)
     }
     console.log(reader.readAsDataURL(files[0]))
 }

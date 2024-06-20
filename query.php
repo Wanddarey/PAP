@@ -26,7 +26,7 @@
       $pageButtonContainer = '<div class="pageButtonContainer"> ';
 
       $pgs = countQueryResults($query);
-      consoleLog('pgs - ' . $pgs);
+      //consoleLog('pgs - ' . $pgs);
       $pg = 1;
       if (isset($_GET["pg"])) {
         $pg = test_input($_GET["pg"]);

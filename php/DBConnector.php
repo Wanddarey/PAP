@@ -88,7 +88,7 @@ function standartQuery($query, $pgNumber)
     }
     $pgNumber = $pgNumber - 1;
     $sql = $sql . 'LIMIT ' . $pgNumber * 20 . ', 20;';
-    consoleLog('stm: ' . $sql);
+    //consoleLog('stm: ' . $sql);
     return executeStatement($sql);
 }
 
@@ -96,7 +96,7 @@ function countQueryResults($query) {
     if (empty($query)) {
         $sql = "SELECT COUNT(Id) AS total FROM `books`;";
     } else {
-        $sql = "SELECT COUNT(Id) AS total FROM `books` WHERE `title` LIKE '%" . $query . "%' OR `author` LIKE '%" . $query . "%' OR `dOP` LIKE '%" . $query . "%';";
+        $sql = "SELECT COUNT(Id) AS total FROM `books` WHERE `title` LIKE '%" . $query . "%' OR `author` LIKE '%" . $query . "%' OR `dOP` LIKE '%" . $query . "%' AND `statusId` == 1;";
     }
 
     $result = executeStatement($sql);
@@ -106,7 +106,7 @@ function countQueryResults($query) {
         $totalCount = (int)$result[0]['total'];
 
         // Calculate number of pages (assuming 20 results per page)
-        consoleLog('num paginas - '. ceil($totalCount / 20));
+        //consoleLog('num paginas - '. ceil($totalCount / 20));
         $pages = ceil($totalCount / 20);
 
         return $pages;
@@ -152,7 +152,7 @@ function doLogin($userName) {
 
 function addBook($uId, $title, $author, $description, $cover, $aR, $dOP) {
     $sql = "INSERT INTO `books` (`UId`, `title`, `author`, `description`, `cover`, `ageRestricted`, `dOP`, `statusId`) 
-        VALUES ($uId, '$title', '$author', '$description', null, '$aR', $dOP, 1)";
+        VALUES ($uId, '$title', '$author', '$description', '$cover', '$aR', $dOP, 1)";
     return executeStatement($sql);
 
 }
