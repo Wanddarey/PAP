@@ -32,7 +32,7 @@ body {
     }  
 }
 
-.infoContainer {
+.bookInfoContainer {
     display: flex;
     flex-direction: column;
     border-radius: var(--standartBorderRadius);

@@ -150,9 +150,14 @@ function doLogin($userName) {
     
 }
 
+function createUser($un, $pw, $dob) {
+    $sql = "INSERT INTO `users` (`userName`, `password`, `birthDate`) VALUES ('$un', '$pw', '$dob');";
+    executeStatement($sql);
+}
+
 function addBook($uId, $title, $author, $description, $cover, $aR, $dOP) {
     $sql = "INSERT INTO `books` (`UId`, `title`, `author`, `description`, `cover`, `ageRestricted`, `dOP`, `statusId`) 
-        VALUES ($uId, '$title', '$author', '$description', '$cover', '$aR', $dOP, 1)";
+        VALUES ($uId, '$title', '$author', '$description', '$cover', '$aR', '$dOP', 1)";
     return executeStatement($sql);
 
 }

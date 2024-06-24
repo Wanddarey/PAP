@@ -38,7 +38,7 @@ function printInfo()
             }
         }
         echo '</div>';
-        if ($_SESSION['user']['Id'] == $result['UId']) {
+        if (isset($_SESSION['user']) && $_SESSION['user']['Id'] == $result['UId']) {
             echo '<a class="formButton formElementColor border" href="./">Edit</a>';
         }
     }
@@ -80,7 +80,7 @@ function setImg()
                 ?>
             </div>
             <div class="bookInfoCardHalf">
-                <div class="infoContainer">
+                <div class="bookInfoContainer">
                     <?php
                     printInfo();
                     ?>
