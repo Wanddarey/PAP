@@ -3,22 +3,20 @@ require_once './php/DBConnector.php';
 require_once './php/Basics.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['userName']) && isset($_POST['password']) && isset($_POST['dob'])) {
-    consoleLog('ha');
     $timeStamp = time();
     $tmpUserName = test_input($_POST['userName']);
     $tmpUserPass = test_input($_POST['password']);
     $tmpdob = test_input($_POST['dob']);
 
-    if (is_null(doLogin($tmpUserName))) {
+    if (empty(doLogin($tmpUserName))) {
         $tmpUserPass = hash('sha512', $tmpUserPass . $timeStamp);
-        createUser($tmpUserName, $tmpUserPass, $tmpdob);
+        createUser($tmpUserName, $tmpUserPass, $tmpdob, $timeStamp);
     } else {
         $accountCreateUserNameError = "User already exists";
+        consoleLog(doLogin($tmpUserName));
         consoleLog($accountCreateUserNameError);
     }
 
-} else {
-    consoleLog('he');
 }
 
 ?>

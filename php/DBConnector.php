@@ -150,8 +150,8 @@ function doLogin($userName) {
     
 }
 
-function createUser($un, $pw, $dob) {
-    $sql = "INSERT INTO `users` (`userName`, `password`, `birthDate`) VALUES ('$un', '$pw', '$dob');";
+function createUser($un, $pw, $dob, $unixTimeStamp) {
+    $sql = "INSERT INTO `users` (`userName`, `password`, `birthDate`, `timeStamp`) VALUES ('$un', '$pw', '$dob', $unixTimeStamp);";
     executeStatement($sql);
 }
 
@@ -159,5 +159,14 @@ function addBook($uId, $title, $author, $description, $cover, $aR, $dOP) {
     $sql = "INSERT INTO `books` (`UId`, `title`, `author`, `description`, `cover`, `ageRestricted`, `dOP`, `statusId`) 
         VALUES ($uId, '$title', '$author', '$description', '$cover', '$aR', '$dOP', 1)";
     return executeStatement($sql);
+
+}
+
+function getComments($bookId) {
+    $sql = "SELECT * FROM `comments` WHERE `bookId` = $bookId;";
+    return executeStatement($sql);
+}
+
+function addComment($uId, $content, $timeStamp) {
 
 }

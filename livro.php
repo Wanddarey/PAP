@@ -87,6 +87,26 @@ function setImg()
                 </div>
             </div>
         </card>
+        <div class="commentSection">
+            <div class="commentDisplay">
+            
+            <?php
+
+            $comments = getComments($result['Id']);
+
+            if (empty($comments)) {
+                echo '<div class="noResult"><h2>No Comments</h2></div>';
+            } else {
+
+            }
+
+            ?>
+
+            </div>
+            <form action="" method="POST" class="commentBox">
+                <textarea class="commentContentInput formElementColor border" name="" id=""></textarea>
+            </form>
+        </div>
     </div>
 </body>
 
