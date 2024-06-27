@@ -37,16 +37,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"
     //consoleLog($dOP);
 
     $fileName = sha1($_SESSION['user']['Id'] . time());
-    addBook($_SESSION['user']['Id'], $title, $author, $description, $fileName, $aR, $dOP);
+    addBook($_SESSION['user']['Id'], $title, $author, $description, $fileName, $aR, $dOP, time());
     shell_exec("ffmpeg -i " . $_FILES['cover']['tmp_name'] . " ./imagens/displayImages/" . $fileName . ".webp");
     shell_exec("ffmpeg -i  ./imagens/displayImages/" . $fileName . ".webp -vf \"scale=-1:270\" ./imagens/gridImages/" . $fileName . "Grid.webp");
 
 
     //header('Location: ./Account.php');
 
-
-} else {
-    consoleLog("ahhhh");
 }
 
 ?>

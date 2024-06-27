@@ -1,7 +1,7 @@
 <header>
     <div class="menu">
         <div class="menuContainer">
-        <a href="#sideMenu" class="pfpContainerCorner"><img id="pfpCorner" src="./resources/hmbmenu.webp" class="pfpImg" alt=""></a>
+        <a onclick="focusSideMenu()" class="pfpContainerCorner"><img id="pfpCorner" src="./resources/hmbmenu.webp" class="pfpImg" alt=""></a>
             <?php
                 require_once './php/Basics.php';
                 //consoleLog(var_dump($_SESSION['user']));

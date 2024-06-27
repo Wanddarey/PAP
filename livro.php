@@ -105,6 +105,9 @@ function setImg()
             </div>
             <form action="" method="POST" class="commentBox">
                 <textarea class="commentContentInput formElementColor border" name="" id=""></textarea>
+                <div>
+                    
+                </div>
             </form>
         </div>
     </div>

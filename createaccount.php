@@ -13,8 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['userName']) && isset($
         createUser($tmpUserName, $tmpUserPass, $tmpdob, $timeStamp);
     } else {
         $accountCreateUserNameError = "User already exists";
-        consoleLog(doLogin($tmpUserName));
-        consoleLog($accountCreateUserNameError);
+        /*consoleLog(doLogin($tmpUserName));
+        consoleLog($accountCreateUserNameError);*/
     }
 
 }
