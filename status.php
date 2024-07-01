@@ -15,9 +15,17 @@
 </head>
 
 <body>
-
     <div id="lowerBody" class="lowerBody">
-        <img class="fofimg" src="./resources/cao404.jpg" alt="404">
+        <?php
+            if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["s"])) {
+                $s = $_GET["s"];
+                if ($s == 403) {
+                    echo '<img class="fofimg" src="./resources/accessDenied.jpg" alt="403">';
+                }
+            } else {
+                echo '<img class="fofimg" src="./resources/cao404.jpg" alt="404">';
+            }
+        ?>
     </div>
 </body>
 

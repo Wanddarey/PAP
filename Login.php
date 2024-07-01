@@ -23,18 +23,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["userName"]) && isset($
             exit();
             
         } else {
-            $passwordError = "<p>Incorrect Password</P>";
+            $passwordError = "<p class='formError'>Incorrect Password</P>";
         }
     } else {
-        $userNameError = "<p>This user doesn't exist</P>";
+        $userNameError = "<p class='formError'>This user doesn't exist</P>";
     }
 
 } else {
     if (empty($_POST["userName"])) {
-        $userNameError = "<p>Please fill in this field</P>";
+        $userNameError = "<p class='formError'>Please fill in this field</P>";
     }
     if (empty($_POST["password"])) {
-        $passwordError = "<p>Please fill in this field</P>";
+        $passwordError = "<p class='formError'>Please fill in this field</P>";
     }
 }
     $userNameError = "";
@@ -63,9 +63,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["userName"]) && isset($
         <form class="forms" action="Login.php" method="POST">
             <h1>Login</h1>
             <input id="userName" class="formElement formElementColor border" placeholder="Username" type="text" name="userName">
-            <?php echo $userNameError;?>
+            <?php global $userNameError; echo $userNameError;?>
             <input id="password" class="formElement formElementColor border" placeholder="Password" type="password" name="password">
-            <?php echo $passwordError;?>
+            <?php global $passwordError; echo $passwordError;?>
             <button class="formButton formElementColor border" type="reset">Clear</button>
             <button class="formButton formElementColor border" type="submit">Login</button>
         </form>

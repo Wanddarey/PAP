@@ -7,10 +7,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['userName']) && isset($
     $tmpUserName = test_input($_POST['userName']);
     $tmpUserPass = test_input($_POST['password']);
     $tmpdob = test_input($_POST['dob']);
+    $accountCreateUserNameError = "";
 
     if (empty(doLogin($tmpUserName))) {
         $tmpUserPass = hash('sha512', $tmpUserPass . $timeStamp);
         createUser($tmpUserName, $tmpUserPass, $tmpdob, $timeStamp);
+        header("Location: Login.php");
     } else {
         $accountCreateUserNameError = "User already exists";
         /*consoleLog(doLogin($tmpUserName));
@@ -44,6 +46,7 @@ if(isset($_SESSION['user'])){
         <form class="forms" action="" method="POST">
             <h1>User Name</h1>
             <input id="userName" class="formElement formElementColor border" placeholder="userName" type="text" name="userName">
+            <p class="formError"><?php global $accountCreateUserNameError; echo $accountCreateUserNameError; ?></p>
             <h1>Password</h1>
             <input id="password" class="formElement formElementColor border" placeholder="password" type="text" name="password">
             <h1>Date of birth</h1>

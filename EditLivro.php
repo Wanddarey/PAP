@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['user'])) {
+if (empty($_SESSION['user'])) {
    header('Location: ./Login.php');
 }
 require_once './php/Basics.php';
@@ -12,6 +12,22 @@ $description;
 $cover;
 $dOP;
 $aR;
+
+if ($_SERVER["REQUEST_METHOD"] == "GET" || $_SERVER["REQUEST_METHOD"] == "POST" && isset($_GET["b"]) || isset($_POST["b"])) {
+   if (isset($_GET["book"])) {
+      $book = test_input($_GET["book"]);
+   } else {
+      $book = test_input($_POST["book"]);
+   }
+
+   $result = dbGetBook($book)[0];
+
+   if ($_SESSION['user']['Id'] != $result['UId'] || $_SESSION['user']['role'] != 0) {
+      header("Location: status.php?s=403");
+   }
+} else {
+   header("Location: status.php");
+}
 
 if (
    $_SERVER["REQUEST_METHOD"] == "POST"

@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["Comment"]) && isset($_
 
 function printInfo()
 {
-    global $result;
+    global $result, $book;
     if (empty($result)) {
         echo '<div class="noResult"><h2>ERRO</h2></div>';
     } else {
@@ -53,7 +53,7 @@ function printInfo()
         }
         echo '</div>';
         if (isset($_SESSION['user']) && $_SESSION['user']['Id'] == $result['UId']) {
-            echo '<a class="formButton formElementColor border" href="./">Edit</a>';
+            echo '<a class="formButton formElementColor border" href="./EditLivro.php?b=' . $book . '">Edit</a>';
         }
     }
 }
@@ -103,7 +103,6 @@ function setImg()
         </card>
         <div class="commentSection">
             <div class="commentDisplay">
-            
             <?php
 
             $comments = getComments($result['Id']);

@@ -158,10 +158,17 @@ function createUser($un, $pw, $dob, $unixTimeStamp) {
 }
 
 function addBook($uId, $title, $author, $description, $cover, $aR, $dOP) {
-    $sql = "INSERT INTO `books` (`UId`, `title`, `author`, `description`, `cover`, `ageRestricted`, `dOP`, `statusId`) 
-        VALUES ($uId, '$title', '$author', '$description', '$cover', '$aR', '$dOP', 1)";
+    $time = time();
+    $sql = "INSERT INTO `books` (`UId`, `title`, `author`, `description`, `cover`, `ageRestricted`, `dOP`, `statusId`, `timeStamp`) 
+        VALUES ($uId, '$title', '$author', '$description', '$cover', '$aR', '$dOP', 1, $time)";
     return executeStatement($sql);
 
+}
+
+function editBook($book, $title, $author, $description, $cover, $aR, $dOP) {
+    $sql = "UPDATE `books` (`title`, `author`, `description`, `cover`, `ageRestricted`, `dOP`) VALUES ('$title', '$author', '$description', '$cover', '$aR', '$dOP') WHERE `Id` = $book";
+
+    executeStatement($sql);
 }
 
 function getComments($bookId) {
