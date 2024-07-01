@@ -5,11 +5,25 @@ require_once './php/Basics.php';
 
 $result;
 
-if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["book"])) {
-    $book = test_input($_GET["book"]);
+
+if ($_SERVER["REQUEST_METHOD"] == "GET" || $_SERVER["REQUEST_METHOD"] == "POST" && isset($_GET["book"]) || isset($_POST["book"])) {
+    if (isset($_GET["book"])) {
+        $book = test_input($_GET["book"]);
+    } else {
+        $book = test_input($_POST["book"]);
+    }
+    
     $result = dbGetBook($book)[0];
 } else {
-    echo '<div class="noResult"><h2>ERRO</h2></div>';
+    header("Location: status.php");
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["Comment"]) && isset($_SESSION['user']) && $_SESSION['user']['statusId'] != 2) {
+
+    $comment = test_input($_POST["Comment"]);
+
+    addComment($_SESSION['user']['Id'], $book, $comment);
+
 }
 
 function printInfo()
@@ -97,16 +111,25 @@ function setImg()
             if (empty($comments)) {
                 echo '<div class="noResult"><h2>No Comments</h2></div>';
             } else {
-
+                foreach ($comments as $comm)
+                echo '
+                    <div class="CommentDiv">
+                        <div>
+                        <p>By: ' . getUser($comm['UId'])[0]['userName'] . '</p>
+                        </div>
+                        <p>' . $comm['content'] . '</p>
+                    </div>
+                ';
             }
 
             ?>
 
             </div>
-            <form action="" method="POST" class="commentBox">
-                <textarea class="commentContentInput formElementColor border" name="" id=""></textarea>
-                <div>
-                    
+            <form action="./livro.php?book=<?php echo $book; ?>" method="POST" class="commentBox">
+                <textarea placeholder="Comment" name="Comment" class="commentContentInput formElementColor border" name="" id=""></textarea>
+                <div class="commenButtons">
+                    <button class="formButton formElementColor border" type="reset">Cancel</button>
+                    <button class="formButton formElementColor border" type="submit">Submit</button>
                 </div>
             </form>
         </div>

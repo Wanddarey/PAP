@@ -129,27 +129,45 @@ body {
 }
 
 .commentSection {
+    border-radius: var(--standartBorderRadius);
     margin-top: 10px;
     background-color: var(--lightGrey);
-    width: 90%;
+    width: 80dvw;
 }
 
 .commentDisplay {
-    width: 100%;
+    width: calc(100% - 20px);
     display: flex;
     flex-direction: column;
     align-content: center;
+    padding: 10px;
+}
+
+.CommentDiv {
+    width: calc(100% - 10px);
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border: 2px solid var(--darkGrey);
+    border-radius: var(--standartBorderRadius);
+    margin-bottom: 5px;
 }
 
 .commentBox {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 200px;
     width: 100%;
 }
 
 .commentContentInput {
     width: 80%;
     color: white;
+}
+
+.commenButtons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin: 10px;
 }

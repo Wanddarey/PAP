@@ -96,7 +96,7 @@ function countQueryResults($query) {
     if (empty($query)) {
         $sql = "SELECT COUNT(Id) AS total FROM `books`;";
     } else {
-        $sql = "SELECT COUNT(Id) AS total FROM `books` WHERE `title` LIKE '%" . $query . "%' OR `author` LIKE '%" . $query . "%' OR `dOP` LIKE '%" . $query . "%' AND `statusId` == 1;";
+        $sql = "SELECT COUNT(Id) AS total FROM `books` WHERE `title` LIKE '%" . $query . "%' OR `author` LIKE '%" . $query . "%' OR `dOP` LIKE '%" . $query . "%' AND `statusId` = 1;";
     }
 
     $result = executeStatement($sql);
@@ -142,12 +142,14 @@ function dbGetLang($langId) {
 
 function doLogin($userName) {
     $sql = "SELECT * FROM `users` WHERE `userName` = '$userName';";
-    //consoleLog(executeStatement($sql));
-    //consoleLog($sql);
-    //executeStatement
+
+    return executeStatement($sql); 
+}
+
+function getUser($Id) {
+    $sql = "SELECT * FROM `users` WHERE `Id` = $Id ;";
 
     return executeStatement($sql);
-    
 }
 
 function createUser($un, $pw, $dob, $unixTimeStamp) {
@@ -167,6 +169,8 @@ function getComments($bookId) {
     return executeStatement($sql);
 }
 
-function addComment($uId, $content, $timeStamp) {
+function addComment($UId, $bid, $content) {
+    $sql = "INSERT INTO `comments` (`UId`, `bookId`, `statusId`, `content`, `timeStamp`) VALUES ($UId, $bid, 1, '$content', " . time() . ");";
 
+    executeStatement($sql);
 }

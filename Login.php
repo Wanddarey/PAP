@@ -9,17 +9,16 @@ $userName;
 $userNameError = "";
 $password;
 $passwordError = "";
-if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["userName"] != "" && $_POST["password"] != "" && !empty($_POST["userName"]) && !empty($_POST["password"])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["userName"]) && isset($_POST["password"])) {
     $userName = test_input($_POST["userName"]);
     $password = test_input($_POST["password"]);
-    consoleLog($userName . ", " . $password);
     $user = doLogin($userName)[0];
-    consoleLog($user["Id"] . ", " . $user["userName"] . ", " . $user["password"]);
 
     if (isset($user)) {
         if ($user["password"] == hash('sha512', $password . $user['timeStamp'])) {
             $_SESSION["user"] = $user;
             alert("Logged in sucessfully");
+            sleep(5);
             header("Location: Index.php");
             exit();
             

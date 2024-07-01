@@ -15,7 +15,7 @@
     </style>
 </head>
 
-<body>
+<body style="overflow: hidden">
 
     <div class="lowerBodyRead">
         <?php
