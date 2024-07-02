@@ -53,6 +53,7 @@ if (
       $aR = 1;
    }
 
+   #TODO: CHECK MIME TYPE BEFORE ADDING
    $fileName = sha1($_SESSION['user']['Id'] . time());
    editBook($book, $title, $author, $description, $fileName, $aR, $dOP);
    shell_exec("ffmpeg -i " . $_FILES['cover']['tmp_name'] . " ./imagens/displayImages/" . $fileName . ".webp");

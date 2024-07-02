@@ -36,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"
     //consoleLog($title . " | " . $author);
     //consoleLog($dOP);
 
+    #TODO: CHECK MIME TYPE BEFORE ADDING
     $fileName = sha1($_SESSION['user']['Id'] . time());
     addBook($_SESSION['user']['Id'], $title, $author, $description, $fileName, $aR, $dOP);
     shell_exec("ffmpeg -i " . $_FILES['cover']['tmp_name'] . " ./imagens/displayImages/" . $fileName . ".webp");

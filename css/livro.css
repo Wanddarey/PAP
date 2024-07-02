@@ -153,6 +153,10 @@ body {
     margin-bottom: 5px;
 }
 
+.youComment {
+    border-color: green;
+}
+
 .commentBox {
     display: flex;
     flex-direction: column;

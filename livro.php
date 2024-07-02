@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" || $_SERVER["REQUEST_METHOD"] == "POST" 
     } else {
         $book = test_input($_POST["book"]);
     }
-    
+
     $result = dbGetBook($book)[0];
 } else {
     header("Location: status.php");
@@ -30,7 +30,7 @@ function printInfo()
 {
     global $result, $book;
     if (empty($result)) {
-        echo '<div class="noResult"><h2>ERRO</h2></div>';
+        header("Location: status.php");
     } else {
         echo '<h1 class="bookInfoText">Title: ' . $result['title'] . '</h1>';
         echo '<p class="textNoMargin">Author: ' . $result['author'] . '</p>';
@@ -105,29 +105,40 @@ function setImg()
         </card>
         <div class="commentSection">
             <div class="commentDisplay">
-            <?php
+                <?php
 
-            $comments = getComments($result['Id']);
+                $comments = getComments($result['Id']);
 
-            if (empty($comments)) {
-                echo '<div class="noResult"><h2>No Comments</h2></div>';
-            } else {
-                foreach ($comments as $comm)
-                echo '
-                    <div class="CommentDiv">
-                        <div>
-                        <p>By: ' . getUser($comm['UId'])[0]['userName'] . '</p>
-                        </div>
-                        <p>' . $comm['content'] . '</p>
-                    </div>
-                ';
-            }
+                if (empty($comments)) {
+                    echo '<div class="noResult"><h2>No Comments</h2></div>';
+                } else {
+                    foreach ($comments as $comm)
 
-            ?>
+                        if ($comm['UId'] == $_SESSION['user']['Id']) {
+                            echo '<div class="CommentDiv youComment">
+                                    <div>
+                                        <p>By: You</p>
+                                    </div>
+                                    <p>' . $comm['content'] . '</p>
+                                </div>';
+                        } else {
+                            echo '<div class="CommentDiv">
+                                    <div>
+                                        <p>By: ' . getUser($comm['UId'])[0]['userName'] . '</p>
+                                    </div>
+                                    <p>' . $comm['content'] . '</p>
+                                </div>';
+                        }
+
+
+                }
+
+                ?>
 
             </div>
             <form action="./livro.php?book=<?php echo $book; ?>" method="POST" class="commentBox">
-                <textarea placeholder="Comment" name="Comment" class="commentContentInput formElementColor border" name="" id=""></textarea>
+                <textarea placeholder="Comment" name="Comment" class="commentContentInput formElementColor border"
+                    name="" id=""></textarea>
                 <div class="commenButtons">
                     <button class="formButton formElementColor border" type="reset">Cancel</button>
                     <button class="formButton formElementColor border" type="submit">Submit</button>
