@@ -27,7 +27,7 @@
             if (empty($file)) {
             echo '<div class="noResult"><h2>File not found</h2></div>';
             } else {
-            echo '<embed class="pdfEmbed" src="./resources/pdf/' . $file[0]['fileName'] . '.pdf" />';
+            echo '<embed class="pdfEmbed" src="./resources/pdf/' . $file[0]['fileName'] . '" />';
             }
         } else {
             echo '<div class="noResult"><h2>File not found</h2></div>';

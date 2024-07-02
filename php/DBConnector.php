@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 //$servername = "sql212.infinityfree.com";
 //$username = "if0_34623021";
 //$password = "vSFEzWq8xLlucvL";
-$DBname = "demo";
+$DBname = "demoa";
 $servername = "localhost";
 $username = "root";
 $dbPassword = "";
@@ -140,6 +140,11 @@ function dbGetLang($langId) {
     return executeStatement($sql);
 }
 
+function dbGetLangs() {
+    $sql = "SELECT * FROM `language`;";
+    return executeStatement($sql);
+}
+
 function doLogin($userName) {
     $sql = "SELECT * FROM `users` WHERE `userName` = '$userName';";
 
@@ -163,6 +168,12 @@ function addBook($uId, $title, $author, $description, $cover, $aR, $dOP) {
         VALUES ($uId, '$title', '$author', '$description', '$cover', '$aR', '$dOP', 1, $time)";
     return executeStatement($sql);
 
+}
+
+function addFile($bid, $filename, $lang) {
+    $time = time();
+    $sql = "INSERT INTO `pdffiles` (`bookId`, `fileName`, `timeStamp`, `langId`, `statusId`) VALUES ($bid, '$filename', $time, $lang, 1);";
+    executeStatement($sql);
 }
 
 function editBook($book, $title, $author, $description, $cover, $aR, $dOP) {

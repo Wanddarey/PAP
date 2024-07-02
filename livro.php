@@ -53,7 +53,9 @@ function printInfo()
         }
         echo '</div>';
         if (isset($_SESSION['user']) && $_SESSION['user']['Id'] == $result['UId']) {
-            echo '<a class="formButton formElementColor border" href="./EditLivro.php?b=' . $book . '">Edit</a>';
+            echo '<a class="formButton formElementColor border" href="./EditLivro.php?book=' . $book . '">Edit</a>';
+            echo '<a class="formButton formElementColor border" href="./AddFile.php?book=' . $book . '">Add file</a>';
+
         }
     }
 }

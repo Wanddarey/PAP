@@ -13,7 +13,7 @@ $cover;
 $dOP;
 $aR;
 
-if ($_SERVER["REQUEST_METHOD"] == "GET" || $_SERVER["REQUEST_METHOD"] == "POST" && isset($_GET["b"]) || isset($_POST["b"])) {
+if ($_SERVER["REQUEST_METHOD"] == "GET" || $_SERVER["REQUEST_METHOD"] == "POST" && isset($_GET["book"]) || isset($_POST["book"])) {
    if (isset($_GET["book"])) {
       $book = test_input($_GET["book"]);
    } else {
@@ -21,6 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" || $_SERVER["REQUEST_METHOD"] == "POST" 
    }
 
    $result = dbGetBook($book)[0];
+   if (empty($result)) {
+      header("Location: status.php");
+   }
 
    if ($_SESSION['user']['Id'] != $result['UId'] || $_SESSION['user']['role'] != 0) {
       header("Location: status.php?s=403");
@@ -50,8 +53,12 @@ if (
       $aR = 1;
    }
 
-   editBook($title, $author, $description, $aR, $dOP);
+   $fileName = sha1($_SESSION['user']['Id'] . time());
+   editBook($book, $title, $author, $description, $fileName, $aR, $dOP);
+   shell_exec("ffmpeg -i " . $_FILES['cover']['tmp_name'] . " ./imagens/displayImages/" . $fileName . ".webp");
+   shell_exec("ffmpeg -i  ./imagens/displayImages/" . $fileName . ".webp -vf \"scale=-1:270\" ./imagens/gridImages/" . $fileName . "Grid.webp");
 
+   header('Location: Livro.php?book=' . $book);
 
    //header('Location: ./Account.php');
 
