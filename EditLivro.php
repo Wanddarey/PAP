@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" || $_SERVER["REQUEST_METHOD"] == "POST" 
       header("Location: status.php");
    }
 
-   if ($_SESSION['user']['Id'] != $result['UId'] || $_SESSION['user']['role'] != 0) {
+   if ($_SESSION['user']['Id'] != $result['UId'] && $_SESSION['user']['role'] != 0) {
       header("Location: status.php?s=403");
    }
 } else {
