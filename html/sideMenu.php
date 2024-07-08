@@ -1,8 +1,8 @@
 <div tabindex="-1" id="sideMenu" class="sideMenu">
     <div class="sideMenuContent">
-        <a class="sideMenuLink" href="./Index.php">Pagina Principal</a>
+        <a class="sideMenuLink" href="./Index.php">Home page</a>
         <div class="sideMenuSeparator"></div>
-        <a class="sideMenuLink" href="./query.php">Ver Tudo</a>
+        <a class="sideMenuLink" href="./query.php">See all</a>
         <div class="sideMenuSeparator"></div>
         <?php
             if ( empty($_SESSION['user']) ) {

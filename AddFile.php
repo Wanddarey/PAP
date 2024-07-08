@@ -33,10 +33,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['pdf']) && get_mime_ty
         $fileName = sha1($_SESSION['user']['Id'] . time() . 'pdf') . '.pdf';
         addFile($book, $fileName,$lang[0]['Id']);
         move_uploaded_file($_FILES['pdf']['tmp_name'], "C:/xampp/htdocs/dashboard/pap/resources/pdf/" . $fileName);
+        header('Location: Livro.php?book=' . $book);
     }
 }else {
     consoleLog('ha');
 }
+
+
 
 ?>
 <!DOCTYPE html>
@@ -60,11 +63,12 @@ print_r($_SESSION);
 
     <div id="lowerBody" class="lowerBody">
         <form class="forms" method="POST" enctype="multipart/form-data">
-            <h1>Cover</h1>
+            <h1>Add file</h1>
+            <h4>Cover</h4>
             <img class="addBookImage" id="coverImg" src="" alt="">
             <input id="pdf" class="formElement formElementColor border" placeholder="cover"
                 type="file" accept="application/pdf" name="pdf">
-            <h1>Language</h1>
+            <h4>Language</h4>
             <input class="formElement formElementColor border" id="lang" name="lang" type="text" list="langs">
             <datalist id="langs">
                 <?php

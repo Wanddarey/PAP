@@ -63,7 +63,7 @@ function setImg()
 {
     global $result;
     if (empty($result['cover'])) {
-        $displayImage = '<img class="bookInfoImage" src="./imagens/displayImages/placeholder.webp">';
+        $displayImage = '<img class="bookInfoImage" src="./resources/noimg.webp">';
     } else {
         $displayImage = '<img class="bookInfoImage" src="./imagens/displayImages/' . $result['cover'] . '.webp">';
     }

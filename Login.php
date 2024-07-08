@@ -62,8 +62,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["userName"]) && isset($
 
         <form class="forms" action="Login.php" method="POST">
             <h1>Login</h1>
+            <h4>Username</h4>
             <input id="userName" class="formElement formElementColor border" placeholder="Username" type="text" name="userName">
             <?php global $userNameError; echo $userNameError;?>
+            <h4>Password</h4>
             <input id="password" class="formElement formElementColor border" placeholder="Password" type="password" name="password">
             <?php global $passwordError; echo $passwordError;?>
             <button class="formButton formElementColor border" type="reset">Clear</button>

@@ -1,4 +1,12 @@
 <?php
+
+function isTrue($bool) {
+    if ($bool) {
+        consoleLog('True');
+    } else {
+        consoleLog('False');
+    }
+}
 function test_input($data)
 {
     $data = trim($data);

@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 //$servername = "sql212.infinityfree.com";
 //$username = "if0_34623021";
 //$password = "vSFEzWq8xLlucvL";
-$DBname = "demo";
+$DBname = "pararel";
 $servername = "localhost";
 $username = "root";
 $dbPassword = "";
@@ -31,6 +31,19 @@ function executeStatement($sql)
     if (tryconnect()) {
         $stmt = $conn->prepare($sql);
         $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    } else {
+        consoleLog('Failed to connect to DB');
+    }
+}
+
+function executeStatementComp($sql, $params = [])
+{
+    global $conn;
+    if (tryconnect()) {
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($params);
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     } else {
@@ -79,7 +92,6 @@ function dbDefaultQuery()
 }*/
 function standartQuery($query, $pgNumber)
 {
-    consoleLog($query);
     $sql = 'SELECT * FROM `books` ';
     if (isset($query) && $query != '') {
         $sql = $sql . "WHERE `title` LIKE '%" . $query . "%' OR `author` LIKE '%" . $query . "%' OR `dOP` LIKE '%" . $query . "%' ";
@@ -177,9 +189,30 @@ function addFile($bid, $filename, $lang) {
 }
 
 function editBook($book, $title, $author, $description, $cover, $aR, $dOP) {
-    $sql = "UPDATE `books` (`title`, `author`, `description`, `cover`, `ageRestricted`, `dOP`) VALUES ('$title', '$author', '$description', '$cover', '$aR', '$dOP') WHERE `Id` = $book";
+    $sql = "UPDATE `books` SET `title` = :title, `author` = :author, `description` = :description, `cover` = :cover, `ageRestricted` = :ageRestricted, `dOP` = :dOP WHERE `id` = :id";
+    $params = [
+        ':title' => $title,
+        ':author' => $author,
+        ':description' => $description,
+        ':cover' => $cover,
+        ':ageRestricted' => $aR,
+        ':dOP' => $dOP,
+        ':id' => $book
+    ];
+    executeStatementComp($sql, $params);
+}
 
-    executeStatement($sql);
+function editBookNoCover($book, $title, $author, $description, $aR, $dOP) {
+    $sql = "UPDATE `books` SET `title` = :title, `author` = :author, `description` = :description, `ageRestricted` = :ageRestricted, `dOP` = :dOP WHERE `id` = :id";
+    $params = [
+        ':title' => $title,
+        ':author' => $author,
+        ':description' => $description,
+        ':ageRestricted' => $aR,
+        ':dOP' => $dOP,
+        ':id' => $book
+    ];
+    executeStatementComp($sql, $params);
 }
 
 function getComments($bookId) {
