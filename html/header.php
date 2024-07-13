@@ -6,13 +6,13 @@
                 require_once './php/Basics.php';
                 //consoleLog(var_dump($_SESSION['user']));
                 if (empty($_SESSION['user'])) {
-                    echo '<a href="./Login.php" class="pfpContainerCorner userInfoContainer"><img id="pfpCorner" src="./resources/alexandriaLogoFinal.webp" class="pfpImg" alt=""></a>';
+                    echo '<a href="./Login.php" class="pfpContainerCorner userInfoContainer"><img id="pfpCorner" src="./resources/alexandriaLogoFinal.webp" class="pfpImg" alt="No user"><div class="infoContainer"><p>Login</p></div></a>';
                 } else {
                     echo '<a href="./Account.php" class="pfpContainerCorner userInfoContainer">';
                     if (empty($_SESSION['user']['pfp']) || $_SESSION['user']['pfp'] == '') {
-                        echo '<img id="pfpCorner" src="./imagens/pfp/img.webp" class="pfpImg" alt="">';
+                        echo '<img id="pfpCorner" src="./imagens/pfp/img.webp" class="pfpImg" alt="No Image">';
                     } else {
-                        echo '<img id="pfpCorner" src="./imagens/pfp/' . $_SESSION['user']['pfp'] . '.webp" class="pfpImg" alt="">';
+                        echo '<img id="pfpCorner" src="./imagens/pfp/' . $_SESSION['user']['pfp'] . '.webp" class="pfpImg" alt="pfp">';
                     }
                     echo '<div class="infoContainer"><p>'. $_SESSION['user']['userName'] .'</p></div></a>';
                 }

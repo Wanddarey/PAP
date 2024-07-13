@@ -18,14 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" || $_SERVER["REQUEST_METHOD"] == "POST" 
     header("Location: status.php");
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["Comment"]) && isset($_SESSION['user']) && $_SESSION['user']['statusId'] != 2) {
-
-    $comment = test_input($_POST["Comment"]);
-
-    addComment($_SESSION['user']['Id'], $book, $comment);
-
-}
-
 function printInfo()
 {
     global $result, $book;
@@ -104,6 +96,7 @@ function setImg()
             </div>
         </card>
         <div class="commentSection">
+            <h1 style="text-align:center">Comments</h1>
             <div class="commentDisplay">
                 <?php
 
@@ -112,9 +105,8 @@ function setImg()
                 if (empty($comments)) {
                     echo '<div class="noResult"><h2>No Comments</h2></div>';
                 } else {
-                    foreach ($comments as $comm)
-
-                        if ($comm['UId'] == $_SESSION['user']['Id']) {
+                    foreach ($comments as $comm) {
+                        if (isset($_SESSION['user']) && $comm['UId'] == $_SESSION['user']['Id']) {
                             echo '<div class="CommentDiv youComment">
                                     <div>
                                         <p>By: You</p>
@@ -129,8 +121,7 @@ function setImg()
                                     <p>' . $comm['content'] . '</p>
                                 </div>';
                         }
-
-
+                    }
                 }
 
                 ?>

@@ -2,8 +2,6 @@
 <html lang="en">
 
 <?php session_start(); ?>
-<?php require_once './html/header.php'; ?>
-<?php require_once './html/sideMenu.php'; ?>
 
 <head>
     <meta charset="UTF-8">
@@ -16,6 +14,9 @@
 </head>
 
 <body style="overflow: hidden">
+
+    <?php require_once './html/header.php'; ?>
+    <?php require_once './html/sideMenu.php'; ?>
 
     <div class="lowerBodyRead">
         <?php

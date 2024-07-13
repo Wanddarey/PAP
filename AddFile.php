@@ -9,6 +9,7 @@ require_once './php/DBConnector.php';
 $book;
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" || $_SERVER["REQUEST_METHOD"] == "POST" && isset($_GET["book"]) || isset($_POST["book"])) {
+
     if (isset($_GET["book"])) {
         $book = test_input($_GET["book"]);
     } else {
@@ -28,14 +29,15 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" || $_SERVER["REQUEST_METHOD"] == "POST" 
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['pdf']) && get_mime_type($_FILES['pdf']['tmp_name']) == 'application/pdf' && isset($_POST['lang'])) {
+
     $lang = dbGetLang(test_input($_POST['lang']));
     if (isset($lang)) {
         $fileName = sha1($_SESSION['user']['Id'] . time() . 'pdf') . '.pdf';
-        addFile($book, $fileName,$lang[0]['Id']);
+        addFile($book, $fileName, $lang[0]['Id']);
         move_uploaded_file($_FILES['pdf']['tmp_name'], "C:/xampp/htdocs/dashboard/pap/resources/pdf/" . $fileName);
         header('Location: Livro.php?book=' . $book);
     }
-}else {
+} else {
     consoleLog('ha');
 }
 
@@ -66,11 +68,11 @@ print_r($_SESSION);
             <h1>Add file</h1>
             <h4>Cover</h4>
             <img class="addBookImage" id="coverImg" src="" alt="">
-            <input id="pdf" class="formElement formElementColor border" placeholder="cover"
-                type="file" accept="application/pdf" name="pdf">
+            <input id="pdf" class="formElement formElementColor border" placeholder="cover" type="file"
+                accept="application/pdf" name="pdf">
             <h4>Language</h4>
-            <input class="formElement formElementColor border" id="lang" name="lang" type="text" list="langs">
-            <datalist id="langs">
+            <select class="formElement formElementColor border" id="lang" name="lang" type="text">
+
                 <?php
 
                 $langs = dbGetLangs();
@@ -80,7 +82,9 @@ print_r($_SESSION);
                 }
 
                 ?>
-            </datalist>
+
+            </select>
+
             <button class="formButton formElementColor border" type="reset">Clear</button>
             <button class="formButton formElementColor border" type="submit">Submit</button>
         </form>

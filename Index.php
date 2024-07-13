@@ -5,7 +5,10 @@
 <?php require_once './html/header.php'; ?>
 <?php require_once './html/sideMenu.php'; ?>
 <?php require_once './php/Basics.php';
-    print_r($_SESSION);
+
+require_once './php/DBConnector.php';
+
+    var_dump(retriveDiscused());
 ?>
 
 <head>
@@ -18,7 +21,9 @@
 <body>
 
     <div id="lowerBody" class="lowerBody">
-
+        <div id="recentes" class="">
+        
+        </div>
     </div>
 </body>
 

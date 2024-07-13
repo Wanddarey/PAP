@@ -2,18 +2,20 @@
 <html lang="en">
 
 <?php session_start(); ?>
-<?php require_once './html/header.php'; ?>
-<?php require_once './html/sideMenu.php'; ?>
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Livros</title>
   <?php require_once './html/basicImports.html'; ?>
+  <style>
+    @import url('./css/grid2.css');
+  </style>
 </head>
 
 <body>
-
+  <?php require_once './html/header.php'; ?>
+  <?php require_once './html/sideMenu.php'; ?>
   <div class="lowerBody">
     <?php
     
@@ -96,24 +98,14 @@ function displayQuery($books)
   echo '<div id="cardDisplay" class="cardDisplayGrid">';
 
   foreach ($books as $book) {
-    $displayCard = '<a href="http://localhost/dashboard/pap/livro.php?book=' . $book['Id'] . '" Title=' . $book['title'] . '><div class="displayCardGrid">';
-    $displayHalf = '<div class="displayHalf">';
+    $displayCard = '<div class="displayCardGrid">';
     if (empty($book['cover'])) {
-      $displayImage = '<img class="displayImage" src="./imagens/gridImages/loremGrid.webp">';
+      $displayImage = '<a href="http://localhost/dashboard/pap/livro.php?book=' . $book['Id'] . '" Title="' . $book['title'] . '"><img class="displayImage" src="./imagens/gridImages/loremGrid.webp" alt"no Image"></a>';
     } else {
-      $displayImage = '<img class="displayImage" src="./imagens/gridImages/' . $book['cover'] . 'Grid.webp">';
+      $displayImage = '<a href="http://localhost/dashboard/pap/livro.php?book=' . $book['Id'] . '" Title="' . $book['title'] . '"><img class="displayImage" src="./imagens/gridImages/' . $book['cover'] . 'Grid.webp" alt="' . $book['title'] . '"></a>';
     }
-    $displayHalf .= $displayImage . '</div>';
+    echo $displayCard . $displayImage . '</div>';
 
-    $displayHalf2 = '<div class="displayHalf2">';
-    $displayTitle = '<h1 class="displayTitle">' . $book['title'] . '</h1>';
-    $textSeparator = '<div class="textSeparator"></div>';
-    $displayParagraph = '<p class="displayParagraph">' . $book['description'] . '</p>';
-    $displayHalf2 .= $displayTitle . $textSeparator . $displayParagraph . '</div>';
-
-    $displayCard .= $displayHalf . $displayHalf2 . '</div></a>';
-
-    echo $displayCard;
   }
 
   echo '</div>';

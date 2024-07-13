@@ -1,20 +1,24 @@
 @import url(root.css);
 
+/*fix sizing error*/
 .cardDisplayGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    border-radius: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    /*grid-template-columns: repeat(auto-fit, minmax(300px, 500px));*/
+    border-radius: var(--standartBorderRadius);
     background-color: var(--lightGrey);
     height: 100%;
     width: 100%;
-    padding: 20px;
-    gap: 20px;
+    padding: 15px;
+    gap: 15px;
+    justify-items: center;
+    overflow: hidden;
 }
 
 .displayCardGrid {
-    border-radius: 10px;
+    border-radius: var(--standartBorderRadius);
     max-width: 600px;
-    /*aspect-ratio: 2/1;*/
+    aspect-ratio: 2/1;
     background-color: var(--grey);
     display: flex;
     flex-direction: row;
@@ -22,16 +26,15 @@
     border: none;
 }
 
-@media only screen and (max-width: 700px) {
-    .displayCardGrid {
-        /*aspect-ratio: 1/2;*/
-        flex-direction: column;
-        max-width: auto;
-        max-height: 600px;
-    }
+.displayHalf {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.displayHalfGrid {
+.displayHalf2 {
     height: 100%;
     width: 50%;
     display: flex;
@@ -40,30 +43,23 @@
     flex-direction: column;
 }
 
-.displayHalf2Grid {
-    height: 100%;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.displayImageGrid {
+.displayImage {
     max-height: 90%;
     max-width: 90%;
+    border-radius: var(--standartBorderRadius);
 }
 
-.displayTitleGrid {
+.displayTitle {
     max-height: 10%;
     max-width: 90%;
     white-space: nowrap;
-    overflow: hidden;
+    overflow-y: hidden;
     text-overflow: ellipsis;
     font-size: 20px;
+    overflow: visible;
 }
 
-.textSeparatorGrid {
+.textSeparator {
     width: 100%;
     height: 2px;
     margin-top: 5px;
@@ -71,8 +67,9 @@
     background-color: var(--lightGrey);
 }
 
-.displayParagraphGrid {
+.displayParagraph {
     max-height: 80%;
     margin: 0px;
     overflow: hidden;
+    text-overflow: ellipsis;
 }

@@ -1,8 +1,5 @@
 <?php
 error_reporting(E_ALL);
-//$servername = "sql212.infinityfree.com";
-//$username = "if0_34623021";
-//$password = "vSFEzWq8xLlucvL";
 $DBname = "pararel";
 $servername = "localhost";
 $username = "root";
@@ -104,7 +101,8 @@ function standartQuery($query, $pgNumber)
     return executeStatement($sql);
 }
 
-function countQueryResults($query) {
+function countQueryResults($query)
+{
     if (empty($query)) {
         $sql = "SELECT COUNT(Id) AS total FROM `books`;";
     } else {
@@ -115,7 +113,7 @@ function countQueryResults($query) {
 
     // Check if result is valid
     if (!empty($result) && isset($result[0]['total'])) {
-        $totalCount = (int)$result[0]['total'];
+        $totalCount = (int) $result[0]['total'];
 
         // Calculate number of pages (assuming 20 results per page)
         //consoleLog('num paginas - '. ceil($totalCount / 20));
@@ -142,39 +140,46 @@ function dbGetFiles($bookId)
     return executeStatement($sql);
 }
 
-function dbGetBookFile($fileId) {
+function dbGetBookFile($fileId)
+{
     $sql = "SELECT * FROM `pdffiles` WHERE `Id` = '$fileId';";
     return executeStatement($sql);
 }
 
-function dbGetLang($langId) {
+function dbGetLang($langId)
+{
     $sql = "SELECT * FROM `language` WHERE `Id` = '$langId';";
     return executeStatement($sql);
 }
 
-function dbGetLangs() {
+function dbGetLangs()
+{
     $sql = "SELECT * FROM `language`;";
     return executeStatement($sql);
 }
 
-function doLogin($userName) {
+function doLogin($userName)
+{
     $sql = "SELECT * FROM `users` WHERE `userName` = '$userName';";
 
-    return executeStatement($sql); 
+    return executeStatement($sql);
 }
 
-function getUser($Id) {
+function getUser($Id)
+{
     $sql = "SELECT * FROM `users` WHERE `Id` = $Id ;";
 
     return executeStatement($sql);
 }
 
-function createUser($un, $pw, $dob, $unixTimeStamp) {
+function createUser($un, $pw, $dob, $unixTimeStamp)
+{
     $sql = "INSERT INTO `users` (`userName`, `password`, `birthDate`, `timeStamp`) VALUES ('$un', '$pw', '$dob', $unixTimeStamp);";
     executeStatement($sql);
 }
 
-function addBook($uId, $title, $author, $description, $cover, $aR, $dOP) {
+function addBook($uId, $title, $author, $description, $cover, $aR, $dOP)
+{
     $time = time();
     $sql = "INSERT INTO `books` (`UId`, `title`, `author`, `description`, `cover`, `ageRestricted`, `dOP`, `statusId`, `timeStamp`) 
         VALUES ($uId, '$title', '$author', '$description', '$cover', '$aR', '$dOP', 1, $time)";
@@ -182,13 +187,15 @@ function addBook($uId, $title, $author, $description, $cover, $aR, $dOP) {
 
 }
 
-function addFile($bid, $filename, $lang) {
+function addFile($bid, $filename, $lang)
+{
     $time = time();
     $sql = "INSERT INTO `pdffiles` (`bookId`, `fileName`, `timeStamp`, `langId`, `statusId`) VALUES ($bid, '$filename', $time, $lang, 1);";
     executeStatement($sql);
 }
 
-function editBook($book, $title, $author, $description, $cover, $aR, $dOP) {
+function editBook($book, $title, $author, $description, $cover, $aR, $dOP)
+{
     $sql = "UPDATE `books` SET `title` = :title, `author` = :author, `description` = :description, `cover` = :cover, `ageRestricted` = :ageRestricted, `dOP` = :dOP WHERE `id` = :id";
     $params = [
         ':title' => $title,
@@ -202,7 +209,8 @@ function editBook($book, $title, $author, $description, $cover, $aR, $dOP) {
     executeStatementComp($sql, $params);
 }
 
-function editBookNoCover($book, $title, $author, $description, $aR, $dOP) {
+function editBookNoCover($book, $title, $author, $description, $aR, $dOP)
+{
     $sql = "UPDATE `books` SET `title` = :title, `author` = :author, `description` = :description, `ageRestricted` = :ageRestricted, `dOP` = :dOP WHERE `id` = :id";
     $params = [
         ':title' => $title,
@@ -215,13 +223,21 @@ function editBookNoCover($book, $title, $author, $description, $aR, $dOP) {
     executeStatementComp($sql, $params);
 }
 
-function getComments($bookId) {
+function getComments($bookId)
+{
     $sql = "SELECT * FROM `comments` WHERE `bookId` = $bookId;";
     return executeStatement($sql);
 }
 
-function addComment($UId, $bid, $content) {
+function addComment($UId, $bid, $content)
+{
     $sql = "INSERT INTO `comments` (`UId`, `bookId`, `statusId`, `content`, `timeStamp`) VALUES ($UId, $bid, 1, '$content', " . time() . ");";
 
     executeStatement($sql);
+}
+
+function retriveDiscused()
+{
+    $sql = "SELECT * FROM `books` LEFT JOIN `comments` ON `books.bookId` = `comments.bookId` GROUP BY `books.bookId` ORDER BY COUNT(`comments.commentId`) DESC LIMIT 10;";
+    return executeStatement($sql);
 }

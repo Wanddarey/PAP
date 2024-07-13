@@ -47,6 +47,7 @@ a {
     text-decoration: none;
     outline: none;
     color: var(--fontColor);
+    height: fit-content;
 }
 
 a:hover {

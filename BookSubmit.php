@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"
     shell_exec("ffmpeg -i  ./imagens/displayImages/" . $fileName . ".webp -vf \"scale=-1:270\" ./imagens/gridImages/" . $fileName . "Grid.webp");
 
 
-    //header('Location: ./Account.php');
+    header('Location: ./query.php');
 
 }
 
@@ -68,21 +68,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"
 
     <div id="lowerBody" class="lowerBody">
         <form class="forms" method="POST" enctype="multipart/form-data" >
-            <h1>Title</h1>
+            <h1>Submit book</h1>
+            <h4>Title</h4>
             <input id="title" class="formElement formElementColor border" placeholder="Title" type="text" name="title">
-            <h1>Author</h1>
+            <h4>Author</h4>
             <input id="author" class="formElement formElementColor border" placeholder="Author" type="text"
                 name="author">
-            <h1>Description</h1>
+            <h4>Description</h4>
             <textarea id="descrpition" class="formElement formElementColor border" type="text"
                 maxlength="600" name="description"> </textarea>
-            <h1>Cover</h1>
+            <h4>Cover</h4>
             <img class="addBookImage" id="coverImg" src="" alt="">
             <input onchange="imgchng()" id="cover" class="formElement formElementColor border" placeholder="cover" type="file"
                 accept="image/png, image/jpeg, image/webp" name="cover">
-            <h1>Date of publication</h1>
+            <h4>Date of publication</h4>
             <input id="dOP" class="formElement formElementColor border" placeholder="dOP" type="date" name="dOP">
-            <h1>18+</h1>
+            <h4>18+</h4>
             <input id="ageRestricted" class="formElement formElementColor border" placeholder="ageRestricted"
                 type="checkbox" name="ageRestricted">
             <button class="formButton formElementColor border" type="reset">Clear</button>
