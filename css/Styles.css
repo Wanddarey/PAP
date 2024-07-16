@@ -62,19 +62,18 @@ header {
 }
 
 .menu {
-    grid-column: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--menuSize);
     z-index: 6;
+    width: -webkit-fill-available;
+    width: -moz-available;
 }
 
 .menuContainer {
     display: flex;
     flex-direction: row;
     height: 50px;
-    width: 95%;
     gap: 10px;
     z-index: 7;
 }
@@ -90,10 +89,17 @@ header {
 }
 
 .userInfoContainer {
-    border-radius: 0%;
-    width: 200px;
     display: flex;
     flex-direction: row;
+    border-radius: var(--standartBorderRadius);
+}
+
+@media only screen and (min-width: 700px) {
+
+    .userInfoContainer {
+        width: 200px;
+    }
+
 }
 
 .infoContainer {
@@ -105,7 +111,8 @@ header {
 
 .pfpImg {
     aspect-ratio: 1/1;
-    height: 50px;
+    height: 46px;
+    width: 46px;
     border-radius: 0%;
 }
 
@@ -146,29 +153,25 @@ header {
     margin-right: 20px;
 }
 
-.menu2 {
-    justify-self: end;
-    grid-column: 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: var(--menuSize);
-}
-
 .searchArea {
     height: 50px;
-    width: 95%;
     display: flex;
     align-items: center;
     justify-content: center;
     max-width: 600px;
 }
 
+@media only screen and (max-width: 700px) {
+
+
+
+}
+
 .searchBar {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    width: 85%;
+    width: 90%;
     flex-direction: row;
     font-size: var(--fontSize);
     margin: 0px;
@@ -322,14 +325,15 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /*min-height: calc(100dvh - 75);*/
+    min-height: calc(100dvh - 145px);
     transition: left ease-in-out 400ms;
 }
 
 @media only screen and (max-width: 550px) {
     .lowerBody {
         left: 0px;
-        width: calc(100dvw - 100px);
+        width: calc(100dvw - 20px);
+        padding: 10px;
     }
 }
 
@@ -381,4 +385,15 @@ header {
 
 .formError {
     color: red;
+}
+
+.sideScrollDisplay {
+    max-width: 100%;
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 15px;
+    gap: 15px;
+    background-color: var(--lightGrey);
 }

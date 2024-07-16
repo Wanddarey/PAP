@@ -18,6 +18,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" || $_SERVER["REQUEST_METHOD"] == "POST" 
     header("Location: status.php");
 }
 
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["Comment"]) && isset($_SESSION['user']) && $_SESSION['user']['statusId'] != 2) {
+
+    $comment = test_input($_POST["Comment"]);
+
+    addComment($_SESSION['user']['Id'], $book, $comment);
+
+}
+
 function printInfo()
 {
     global $result, $book;

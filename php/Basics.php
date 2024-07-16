@@ -41,6 +41,18 @@ function get_mime_type(string $filename)
     return $mime_type;
 }
 
+function isMobileChromium() {
+    $userAgent = $_SERVER['HTTP_USER_AGENT'];
+
+    $mobileChromiumPattern = '/(Chrome|Edg|OPR|Brave|Vivaldi)\/[.0-9]*.*Mobile/';
+
+    if (preg_match($mobileChromiumPattern, $userAgent)) {
+        return true;
+    }
+
+    return false;
+}
+
 
 
 /*

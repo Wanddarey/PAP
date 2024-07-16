@@ -28,7 +28,12 @@
             if (empty($file)) {
             echo '<div class="noResult"><h2>File not found</h2></div>';
             } else {
-            echo '<embed class="pdfEmbed" src="./resources/pdf/' . $file[0]['fileName'] . '" />';
+                if (isMobileChromium()) {
+                    echo '<embed class="pdfEmbed" src="http://docs.google.com/gview?url=https://' . $_SERVER["SERVER_NAME"] . '/pap/resources/pdf/' . $file[0]['fileName'] . '&embedded=true" />';
+                }else {
+                    echo '<embed class="pdfEmbed" src="./resources/pdf/' . $file[0]['fileName'] . '" />';
+                }
+            
             }
         } else {
             echo '<div class="noResult"><h2>File not found</h2></div>';

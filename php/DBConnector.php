@@ -236,7 +236,13 @@ function addComment($UId, $bid, $content)
     executeStatement($sql);
 }
 
-function retriveDiscused()
+function retrieveRecent()
+{
+    $sql = "SELECT * FROM `books` ORDER BY `Id` DESC LIMIT 10;";
+    return executeStatement($sql);
+}
+
+function retrieveDiscused()
 {
     $sql = "SELECT * FROM `books` LEFT JOIN `comments` ON `books.bookId` = `comments.bookId` GROUP BY `books.bookId` ORDER BY COUNT(`comments.commentId`) DESC LIMIT 10;";
     return executeStatement($sql);

@@ -26,7 +26,7 @@
         <h1 class="webTitle">Alexandria</h1>
         
     </a>
-    <div class="menu2">
+    <div class="menu">
         <div class="searchArea">
             <form class="searchBar" id="searchForm" action="/dashboard/pap/query.php" method="get">
                 <input id="searchInput" class="searchInput" placeholder="Book or author" type="text" name="query">

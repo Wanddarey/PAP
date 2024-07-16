@@ -24,9 +24,7 @@ function printInfo()
   if (empty($result)) {
     header("Location: status.php");
   } else {
-    echo '<h1 class="bookInfoText">Username: ' . $result['title'] . '</h1>';
-    echo '<p class="textNoMargin">Author: ' . $result['author'] . '</p>';
-    echo '<p class="textNoMargin">Date of publication: ' . $result['dOP'] . '</p>';
+    echo '<h1 class="bookInfoText">Username: ' . $result['username'] . '</h1>';
     echo '<p class="textNoMargin">Description: ' . $result['description'] . '</p>';
     if (isset($_SESSION['user']) && $_SESSION['user']['Id'] == $result['UId']) {
       echo '<a class="formButton formElementColor border" href="./EditLivro.php?book=' . $user . '">Edit</a>';

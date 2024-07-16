@@ -24,7 +24,7 @@
     $pgs = 0;
 
     function mkbtn($query, $pg) {
-      $currentPageLink = 'http://localhost/dashboard/pap/query.php?query=' . $query . '&pg=';
+      $currentPageLink = './query.php?query=' . $query . '&pg=';
       $pageButtonContainer = '<div class="pageButtonContainer"> ';
 
       $pgs = countQueryResults($query);
@@ -98,13 +98,13 @@ function displayQuery($books)
   echo '<div id="cardDisplay" class="cardDisplayGrid">';
 
   foreach ($books as $book) {
-    $displayCard = '<div class="displayCardGrid">';
+    $displayCard = '<span class="displayCardGrid">';
     if (empty($book['cover'])) {
-      $displayImage = '<a href="http://localhost/dashboard/pap/livro.php?book=' . $book['Id'] . '" Title="' . $book['title'] . '"><img class="displayImage" src="./imagens/gridImages/loremGrid.webp" alt"no Image"></a>';
+      $displayImage = '<a href="./livro.php?book=' . $book['Id'] . '" Title="' . $book['title'] . '"><img class="displayImage" src="./resources/noimg.webp" alt"no Image"></a>';
     } else {
-      $displayImage = '<a href="http://localhost/dashboard/pap/livro.php?book=' . $book['Id'] . '" Title="' . $book['title'] . '"><img class="displayImage" src="./imagens/gridImages/' . $book['cover'] . 'Grid.webp" alt="' . $book['title'] . '"></a>';
+      $displayImage = '<a href="./livro.php?book=' . $book['Id'] . '" Title="' . $book['title'] . '"><img class="displayImage" src="./imagens/gridImages/' . $book['cover'] . 'Grid.webp" alt="' . $book['title'] . '"></a>';
     }
-    echo $displayCard . $displayImage . '</div>';
+    echo $displayCard . $displayImage . '</span>';
 
   }
 
