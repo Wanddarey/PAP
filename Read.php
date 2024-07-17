@@ -15,7 +15,7 @@
 
 <body style="overflow: hidden">
 
-    <?php require_once './html/header.php'; ?>
+    <?php require_once './html/header2.php'; ?>
     <?php require_once './html/sideMenu.php'; ?>
 
     <div class="lowerBodyRead">

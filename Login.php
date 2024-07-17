@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["userName"]) && isset($
     $userName = test_input($_POST["userName"]);
     $password = test_input($_POST["password"]);
     $user = doLogin($userName)[0];
-
+    consoleLog(hash('sha512', $password . $user['timeStamp']));
     if (isset($user)) {
         if ($user["password"] == hash('sha512', $password . $user['timeStamp'])) {
             $_SESSION["user"] = $user;
@@ -54,8 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["userName"]) && isset($
     </style>
 </head>
 
-<body>
-    <?php require_once './html/header.php'; ?>
+<body><script>0</script>
+    <?php require_once './html/header2.php'; ?>
     <?php require_once './html/sideMenu.php'; ?>
 
     <div class="lowerBody">

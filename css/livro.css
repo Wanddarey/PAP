@@ -77,8 +77,8 @@ body {
     border-radius: var(--standartBorderRadius);
     overflow-y: scroll;
     scrollbar-width: none;
-    height: 100px;
     width: 90%;
+    max-height: 100px;
     background-color: var(--grey);
     justify-content: start;
     border: 20px;
@@ -200,4 +200,13 @@ body {
 
 #pageNumber {
     width: 20px;
+}
+
+.linkWrap {
+    width: fit-content;
+    display: flex;
+}
+
+.UNW {
+    width: fit-content;
 }

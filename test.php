@@ -14,8 +14,8 @@
 
 </head>
 
-<body>
-    <?php require_once './html/header.php'; ?>
+<body><script>0</script>
+    <?php require_once './html/header2.php'; ?>
     <?php require_once './html/sideMenu.php'; ?>
 
     <div class="lowerBody">

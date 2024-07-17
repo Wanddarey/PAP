@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-$DBname = "pararel";
+$DBname = "papdb";
 $servername = "localhost";
 $username = "root";
 $dbPassword = "";
@@ -196,7 +196,7 @@ function addFile($bid, $filename, $lang)
 
 function editBook($book, $title, $author, $description, $cover, $aR, $dOP)
 {
-    $sql = "UPDATE `books` SET `title` = :title, `author` = :author, `description` = :description, `cover` = :cover, `ageRestricted` = :ageRestricted, `dOP` = :dOP WHERE `id` = :id";
+    $sql = "UPDATE `books` SET `title` = :title, `author` = :author, `description` = :description, `cover` = :cover, `ageRestricted` = :ageRestricted, `dOP` = :dOP WHERE `Id` = :Id";
     $params = [
         ':title' => $title,
         ':author' => $author,
@@ -204,21 +204,21 @@ function editBook($book, $title, $author, $description, $cover, $aR, $dOP)
         ':cover' => $cover,
         ':ageRestricted' => $aR,
         ':dOP' => $dOP,
-        ':id' => $book
+        ':Id' => $book
     ];
     executeStatementComp($sql, $params);
 }
 
 function editBookNoCover($book, $title, $author, $description, $aR, $dOP)
 {
-    $sql = "UPDATE `books` SET `title` = :title, `author` = :author, `description` = :description, `ageRestricted` = :ageRestricted, `dOP` = :dOP WHERE `id` = :id";
+    $sql = "UPDATE `books` SET `title` = :title, `author` = :author, `description` = :description, `ageRestricted` = :ageRestricted, `dOP` = :dOP WHERE `Id` = :Id";
     $params = [
         ':title' => $title,
         ':author' => $author,
         ':description' => $description,
         ':ageRestricted' => $aR,
         ':dOP' => $dOP,
-        ':id' => $book
+        ':Id' => $book
     ];
     executeStatementComp($sql, $params);
 }
@@ -246,4 +246,37 @@ function retrieveDiscused()
 {
     $sql = "SELECT * FROM `books` LEFT JOIN `comments` ON `books.bookId` = `comments.bookId` GROUP BY `books.bookId` ORDER BY COUNT(`comments.commentId`) DESC LIMIT 10;";
     return executeStatement($sql);
+}
+
+function editUser($user, $userName, $description, $dob)
+{
+    $sql = "UPDATE `users` SET `userName` = :userName, `description` = :description, `birthDate` = :dob WHERE `Id` = :Id";
+    $params = [
+        ':userName' => $userName,
+        ':description' => $description,
+        ':dob' => $dob,
+        ':Id' => $user
+    ];
+    executeStatementComp($sql, $params);
+}
+
+function editUserPass($user, $password, $timeStamp)
+{
+    $sql = "UPDATE `users` SET `password` = :password, `timeStamp` = :timeStamp WHERE `Id` = :Id";
+    $params = [
+        ':password' => $password,
+        ':timeStamp' => $timeStamp,
+        ':Id' => $user
+    ];
+    executeStatementComp($sql, $params);
+}
+
+function editUserPfp($user, $pfp)
+{
+    $sql = "UPDATE `users` SET `pfp` = :pfp WHERE `Id` = :Id";
+    $params = [
+        ':pfp' => $pfp,
+        ':Id' => $user
+    ];
+    executeStatementComp($sql, $params);
 }

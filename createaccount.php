@@ -15,8 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['userName']) && isset($
         header("Location: Login.php");
     } else {
         $accountCreateUserNameError = "User already exists";
-        /*consoleLog(doLogin($tmpUserName));
-        consoleLog($accountCreateUserNameError);*/
     }
 
 }
@@ -38,8 +36,8 @@ if(isset($_SESSION['user'])){
 }
 
 ?>
-<body>
-    <?php require_once './html/header.php'; ?>
+<body><script>0</script>
+    <?php require_once './html/header2.php'; ?>
     <?php require_once './html/sideMenu.php'; ?>
 
     <div id="lowerBody" class="lowerBody">

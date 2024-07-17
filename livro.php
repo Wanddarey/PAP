@@ -34,13 +34,14 @@ function printInfo()
     } else {
         echo '<h1 class="bookInfoText">Title: ' . $result['title'] . '</h1>';
         echo '<p class="textNoMargin">Author: ' . $result['author'] . '</p>';
+        echo '<a href="./Account.php?u=' . $result['UId'] . '"><p class="textNoMargin">By: ' . getUser($result['UId'])[0]['userName'] . '</p></a>';
         echo '<p class="textNoMargin">Date of publication: ' . $result['dOP'] . '</p>';
         echo '<p class="textNoMargin">Description: ' . $result['description'] . '</p>';
         echo '<h1 class="bookInfoText">Files:</h1>';
         echo '<div class="filesDisplay">';
         $files = dbGetFiles($result['Id']);
         if (empty($files)) {
-            echo '<div class="noResult"><h2>No Files</h2></div>';
+            echo '<div class="noResult" style="margin:0px;"><h2>No Files</h2></div>';
         } else {
             foreach ($files as $file) {
                 $fileRow = '<a href="./read.php?file=' . $file['Id'] . '" class="fileRow">';
@@ -84,8 +85,8 @@ function setImg()
     </style>
 </head>
 
-<body>
-    <?php require_once './html/header.php'; ?>
+<body><script>0</script>
+    <?php require_once './html/header2.php'; ?>
     <?php require_once './html/sideMenu.php'; ?>
 
     <div id="lowerBody" class="lowerBody">
@@ -117,14 +118,14 @@ function setImg()
                         if (isset($_SESSION['user']) && $comm['UId'] == $_SESSION['user']['Id']) {
                             echo '<div class="CommentDiv youComment">
                                     <div>
-                                        <p>By: You</p>
+                                        <a Class="linkWrap" href="./Account.php?u=' . $comm['UId'] . '"><p Class="UNW">By: You</p></a>
                                     </div>
                                     <p>' . $comm['content'] . '</p>
                                 </div>';
                         } else {
                             echo '<div class="CommentDiv">
                                     <div>
-                                        <p>By: ' . getUser($comm['UId'])[0]['userName'] . '</p>
+                                        <a Class="linkWrap" href="./Account.php?u=' . $comm['UId'] . '"><p class="UNW">By: ' . getUser($comm['UId'])[0]['userName'] . '</p></a>
                                     </div>
                                     <p>' . $comm['content'] . '</p>
                                 </div>';

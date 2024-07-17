@@ -47,8 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['pdf']) && get_mime_ty
 <!DOCTYPE html>
 <html lang="en">
 
-<?php require_once './html/header.php'; ?>
-<?php require_once './html/sideMenu.php'; ?>
+
 <?php require_once './php/Basics.php';
 print_r($_SESSION);
 ?>
@@ -61,7 +60,10 @@ print_r($_SESSION);
     <script src="./javascript/loadImg.js"></script>
 </head>
 
-<body>
+<body><script>0</script>
+
+<?php require_once './html/header2.php'; ?>
+<?php require_once './html/sideMenu.php'; ?>
 
     <div id="lowerBody" class="lowerBody">
         <form class="forms" method="POST" enctype="multipart/form-data">

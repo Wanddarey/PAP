@@ -19,9 +19,9 @@ require_once './php/DBConnector.php';
     </style>
 </head>
 
-<body>
+<body><script>0</script>
 
-    <?php require_once './html/header.php'; ?>
+    <?php require_once './html/header2.php'; ?>
     <?php require_once './html/sideMenu.php'; ?>
 
     <div id="lowerBody" class="lowerBody">

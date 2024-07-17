@@ -4,7 +4,7 @@
 function imgchng() {
     const reader = new FileReader()
   
-    let files = document.getElementById('cover').files
+    let files = document.getElementById('imgFile').files
     reader.onload = async (event) => {
         document.getElementById('coverImg').setAttribute('src', event.target.result)
     }

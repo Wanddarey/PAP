@@ -8,7 +8,7 @@
                 if (empty($_SESSION['user'])) {
                     echo '<a href="./Login.php" class="pfpContainerCorner userInfoContainer"><img id="pfpCorner" src="./resources/alexandriaLogoFinal.webp" class="pfpImg" alt="No user"><div class="infoContainer"><p>Login</p></div></a>';
                 } else {
-                    echo '<a href="./Account.php" class="pfpContainerCorner userInfoContainer">';
+                    echo '<a href="./Account.php?u=' . $_SESSION['user']['Id'] . '" class="pfpContainerCorner userInfoContainer">';
                     if (empty($_SESSION['user']['pfp']) || $_SESSION['user']['pfp'] == '') {
                         echo '<img id="pfpCorner" src="./imagens/pfp/img.webp" class="pfpImg" alt="No Image">';
                     } else {

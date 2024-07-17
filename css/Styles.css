@@ -397,3 +397,7 @@ header {
     gap: 15px;
     background-color: var(--lightGrey);
 }
+
+.noMargin {
+    margin: 0px;
+}

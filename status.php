@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php session_start(); ?>
-<?php require_once './html/header.php'; ?>
+<?php require_once './html/header2.php'; ?>
 <?php require_once './html/sideMenu.php'; ?>
 <?php require_once './php/Basics.php';
 ?>
@@ -14,7 +14,7 @@
     <?php require_once './html/basicImports.html'; ?>
 </head>
 
-<body>
+<body><script>0</script>
     <div id="lowerBody" class="lowerBody">
         <?php
             if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["s"])) {

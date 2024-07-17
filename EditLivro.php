@@ -86,8 +86,8 @@ if (
 
 ?>
 
-<body>
-   <?php require_once './html/header.php'; ?>
+<body><script>0</script>
+   <?php require_once './html/header2.php'; ?>
    <?php require_once './html/sideMenu.php'; ?>
 
    <div id="lowerBody" class="lowerBody">
@@ -103,7 +103,7 @@ if (
          <textarea id="descrpition" class="formElement formElementColor border" type="text" maxlength="600" name="description"><?php echo $result['description']; ?></textarea>
          <h4>Cover</h4>
          <img class="addBookImage" id="coverImg" src="" alt="">
-         <input onchange="imgchng()" id="cover" class="formElement formElementColor border" placeholder="cover"
+         <input onchange="imgchng()" id="imgFile" class="formElement formElementColor border" placeholder="cover"
             type="file" accept="image/png, image/jpeg, image/webp" name="cover">
          <h4>Date of publication</h4>
          <input id="dOP" value="<?php echo $result['dOP']; ?>" class="formElement formElementColor border" placeholder="dOP" type="date" name="dOP">

@@ -10,7 +10,7 @@
                 echo '<div class="sideMenuSeparator"></div>';
                 echo '<a class="sideMenuLink" href="./createaccount.php">Create Account</a>';
             } else {
-                echo '<a class="sideMenuLink" href="./Account.php">Account</a>
+                echo '<a class="sideMenuLink" href="./Account.php?u=' . $_SESSION['user']['Id'] . '">Account</a>
                     <div class="sideMenuSeparator"></div>
                     <a class="sideMenuLink" href="./Logout.php">Log out</a>
                     <div class="sideMenuSeparator"></div>
