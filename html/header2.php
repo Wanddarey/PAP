@@ -27,7 +27,7 @@
 
     </a>
     <div class="menu">
-        <form class="searchBar" id="searchForm" action="/dashboard/pap/query.php" method="get">
+        <form class="searchBar" id="searchForm" action="./query.php" method="get">
             <input id="searchInput" class="searchInput" placeholder="Book or author" type="text" name="query">
             <button class="delButton" type="reset">X</button>
             <button class="searchButton" type="submit">Search</button>

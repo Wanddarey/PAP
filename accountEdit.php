@@ -51,7 +51,19 @@ if (
         if ($mimet == 'image/png' || $mimet == 'image/jpg' || $mimet == 'image/jpeg' || $mimet == 'image/webp') {
             $fileName = sha1($_SESSION['user']['Id'] . time());
             editUserPfp($user, $fileName);
-            shell_exec("ffmpeg -i " . $_FILES['pfp']['tmp_name'] . " ./imagens/pfp/" . $fileName . ".webp");
+            consoleLog($_FILES['pfp']['tmp_name']);
+            $command = "/usr/bin/ffmpeg -i " . escapeshellarg($_FILES['pfp']['tmp_name']) . " ./imagens/pfp/" . escapeshellarg($fileName . ".webp") . " > ./log.txt 2>&1";
+        
+            // Execute the command
+            $output = shell_exec($command);
+        
+            // Log the command for debugging
+            consoleLog("Executed command: " . $command);
+        
+            // Log the output of shell_exec for debugging
+            consoleLog("FFmpeg output: " . $output);
+        } else {
+        consoleLog("Unsupported MIME type: " . $mimet);
         }
     }
 
@@ -66,7 +78,7 @@ if (
         $_SESSION["user"] = $result;
     }
 
-    header('Location: Account.php?u=' . $user);
+    //header('Location: Account.php?u=' . $user);
 
 }
 

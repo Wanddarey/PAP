@@ -1,9 +1,9 @@
 <?php
 error_reporting(E_ALL);
 $DBname = "papdb";
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username = "root";
-$dbPassword = "";
+$dbPassword = "Bluebottle555";
 $conn;
 require_once 'Basics.php';
 
@@ -17,7 +17,7 @@ function tryconnect()
         //echo "Connected successfully";
         return true;
     } catch (PDOException $e) {
-        //echo "Connection failed: " . $e->getMessage();
+        consoleLog("Connection failed: " . $e->getMessage()) ;
         return false;
     }
 }

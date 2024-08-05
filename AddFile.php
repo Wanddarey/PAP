@@ -34,8 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['pdf']) && get_mime_ty
     if (isset($lang)) {
         $fileName = sha1($_SESSION['user']['Id'] . time() . 'pdf') . '.pdf';
         addFile($book, $fileName, $lang[0]['Id']);
-        move_uploaded_file($_FILES['pdf']['tmp_name'], "C:/xampp/htdocs/dashboard/pap/resources/pdf/" . $fileName);
-        header('Location: Livro.php?book=' . $book);
+        move_uploaded_file($_FILES['pdf']['tmp_name'], "./resources/pdf/" . $fileName);
+        header('Location: livro.php?book=' . $book);
     }
 } else {
     consoleLog('ha');

@@ -18,7 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["userName"]) && isset($
         if ($user["password"] == hash('sha512', $password . $user['timeStamp'])) {
             $_SESSION["user"] = $user;
             alert("Logged in sucessfully");
-            sleep(5);
             header("Location: Index.php");
             exit();
             

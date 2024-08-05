@@ -66,7 +66,7 @@ if (
    }
 
 
-   header('Location: Livro.php?book=' . $book);
+   header('Location: livro.php?book=' . $book);
 
 }
 

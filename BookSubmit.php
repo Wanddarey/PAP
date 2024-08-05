@@ -44,11 +44,8 @@ if (
         addBook($_SESSION['user']['Id'], $title, $author, $description, $fileName, $aR, $dOP);
         shell_exec("ffmpeg -i " . $_FILES['cover']['tmp_name'] . " ./imagens/displayImages/" . $fileName . ".webp");
         shell_exec("ffmpeg -i  ./imagens/displayImages/" . $fileName . ".webp -vf \"scale=-1:270\" ./imagens/gridImages/" . $fileName . "Grid.webp");
-        //header('Location: ./query.php');
+        header('Location: ./query.php');
     }
-
-    
-
 }
 
 ?>
